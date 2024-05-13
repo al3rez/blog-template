@@ -1,7 +1,4 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: default
 ---
 
@@ -91,7 +88,7 @@ layout: default
         ></path></svg
     ></a>
   </div>
-    <p>I'm Alireza Bashiri. I run a solo dev agency, <a class="text-black" href="x.com/al3rez">Devmason</a>, and I'm about to quit and become a full-time indie hacker soon. I often write on <a class="text-black" href="x.com/al3rez">Twitter</a>, and here I share what I learn in between.    </p>
+    <p>I'm Alireza Bashiri. I run a solo dev agency, <a class="text-black" href="https://devmason.io" target="_blank">Devmason</a>, and I'm about to quit and become a full-time indie hacker soon. I often write on <a class="text-black" href="https://x.com/al3rez" target="_blank">Twitter</a>, and here I share what I learn in between.    </p>
     <h2>Posts</h2>
     <ul>
       {% for post in site.posts %}
