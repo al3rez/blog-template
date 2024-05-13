@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<div class="flex gap-2 items-center">
+  <a
+    class="font-sans px-2 py-1 text-sm bg-gray-100 rounded-xl flex items-center gap-2 interact-bounce text-gray-700"
+    href="https://devmason.io"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      aria-hidden="true"
+      data-slot="icon"
+      class="h-4 w-4"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+      ></path></svg
+    >Go back</a
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    aria-hidden="true"
+    data-slot="icon"
+    class="h-3 w-3 text-gray-400"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="m8.25 4.5 7.5 7.5-7.5 7.5"
+    ></path></svg
+  ><a
+    class="flex interact-bounce items-center gap-2 text-sm text-gray-700 bg-gray-100 rounded-xl px-2 py-1"
+    href="/"
+    >The blog</a
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    aria-hidden="true"
+    data-slot="icon"
+    class="h-3 w-3 text-gray-400"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="m8.25 4.5 7.5 7.5-7.5 7.5"
+    ></path></svg
+  ><span class="text-sm border text-gray-500 rounded-xl px-2 py-1"
+    >This article</span
+  >
+</div>
+
+<article class="py-4 sm:pb-24 markdown">
+  <div class="flex flex-row items-center justify-between mb-4">
+    <div class="text-xl font-serif">{{page.title}}</div>
+    {% if page.link %}
+    <a
+      href="{{page.link}}"
+      class="font-sans px-2 py-1 text-sm bg-blue-50 rounded-lg flex items-center gap-2 interact-bounce w-max h-max no-underline"
+      style="text-decoration-line: none"
+      >{{page.link_name}}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true"
+        data-slot="icon"
+        class="h-3 w-3"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+        ></path></svg
+    ></a>
+    {% endif %}
+  </div>
+  <div class="grayscale">{{content}}</div>
+</article>

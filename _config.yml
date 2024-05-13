@@ -1,0 +1,15 @@
+title: al3re
+email: al3rezl@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  I'm Alireza Bashiri, aka al3rez on Twitter, Github and everywhere else. I run
+  a solo dev agency, Devmason, and I'm about to quit and become a full-time
+  indie hacker soon. I often write on Twitter, and here I share what I learn in
+  between.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://al3rez.com"
+twitter_username: al3rez
+github_username:  al3rez
+permalink: :title
+theme: minima
+plugins:
+  - jekyll-feed
