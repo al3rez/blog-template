@@ -46,7 +46,7 @@ layout: default
     <div class="flex flex-row items-center justify-end mb-4 gap-2">
     <div class="text-xl font-serif">{{page.title}}</div>
     <a
-      href="https://github.com/sfcompute/tinynarrations"
+      href="https://x.com/al3rez"
       class="font-sans px-2 py-1 text-sm bg-blue-50 rounded-lg flex items-center gap-2 interact-bounce w-max h-max no-underline"
       style="text-decoration-line: none"
       ><span class="line-through">Twitter</span>𝕏
