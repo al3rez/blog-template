@@ -88,7 +88,7 @@ layout: default
         ></path></svg
     ></a>
   </div>
-    <p>I'm <span class="font-bold">Alireza Bashiri</span>. I run a solo dev agency, <a class="text-black" href="https://devmason.io" target="_blank">Devmason</a>, and I'm about to quit and become a full-time indie hacker soon. I often write on <a class="text-black" href="https://x.com/al3rez" target="_blank">Twitter</a>, and here I share what I learn in between.    </p>
+    <p>I'm Alireza Bashiri. I run a one-person dev agency, but I'll be quitting soon to go full-time indie hacker. I tweet a lot (@al3rez) and share what I'm learning here.</p>
     <h2>Posts</h2>
     <ul>
       {% for post in site.posts %}
