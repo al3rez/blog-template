@@ -1,20 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-WSBL7EYHMD"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-WSBL7EYHMD");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/main.css" rel="stylesheet" />
@@ -28,5 +18,6 @@
     <div class="flex justify-center px-4 py-8 sm:h-full sm:py-24">
       <div class="flex w-full max-w-xl flex-col gap-2">{{content}}</div>
     </div>
+    {% include consent.html %}
   </body>
 </html>

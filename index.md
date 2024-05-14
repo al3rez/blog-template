@@ -49,7 +49,7 @@ layout: default
       href="https://x.com/al3rez"
       class="font-sans px-2 py-1 text-sm bg-blue-50 rounded-lg flex items-center gap-2 interact-bounce w-max h-max no-underline"
       style="text-decoration-line: none"
-      ><span class="line-through">Twitter</span>𝕏
+      ><span class="">Twitter</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -67,10 +67,10 @@ layout: default
         ></path></svg
     ></a>
 <a
-      href="/what-is-indie-hacking-anyway"
+      href="/privacy"
       class="font-sans px-2 py-1 text-sm bg-blue-50 rounded-lg flex items-center gap-2 interact-bounce w-max h-max no-underline"
       style="text-decoration-line: none"
-      >What is indie hacking anyway?
+      >Privacy
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
