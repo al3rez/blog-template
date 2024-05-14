@@ -1,5 +1,5 @@
 ---
-title: Alireza Bashiri
+title: al3rez — longform
 layout: default
 ---
 
@@ -44,8 +44,11 @@ layout: default
     >
   </div>
   <article class="py-4 sm:pb-24 markdown">
-    <div class="flex flex-row items-center justify-end mb-4 gap-2">
-    <div class="text-xl font-serif">{{page.title}}</div>
+    <div class="flex flex-row items-center justify-between mb-4">
+      <div>
+        <h1 class="!text-xl !font-sans">{{page.title}}</h1>
+      </div>
+      <div class="flex gap-2">
     <a
       href="https://x.com/al3rez"
       class="font-sans px-2 py-1 text-sm bg-blue-50 rounded-lg flex items-center gap-2 interact-bounce w-max h-max no-underline"
@@ -88,6 +91,7 @@ layout: default
           d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
         ></path></svg
     ></a>
+      </div>
   </div>
     <p>I'm Alireza Bashiri. I run a one-person dev agency, but I'll be quitting soon to go full-time indie hacker. I tweet a lot (@al3rez) and share what I'm learning here.</p>
     <h2>Posts</h2>

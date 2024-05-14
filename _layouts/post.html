@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<div class="flex gap-2 items-center">
+<div class="flex items-center gap-2">
   <a
-    class="font-sans px-2 py-1 text-sm bg-gray-100 rounded-xl flex items-center gap-2 interact-bounce text-gray-700"
+    class="interact-bounce flex items-center gap-2 rounded-xl bg-gray-100 px-2 py-1 font-sans text-sm text-gray-700"
     href="https://devmason.io"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ layout: default
       d="m8.25 4.5 7.5 7.5-7.5 7.5"
     ></path></svg
   ><a
-    class="flex interact-bounce items-center gap-2 text-sm text-gray-700 bg-gray-100 rounded-xl px-2 py-1"
+    class="interact-bounce flex items-center gap-2 rounded-xl bg-gray-100 px-2 py-1 text-sm text-gray-700"
     href="/"
     >The blog</a
   ><svg
@@ -56,18 +56,18 @@ layout: default
       stroke-linejoin="round"
       d="m8.25 4.5 7.5 7.5-7.5 7.5"
     ></path></svg
-  ><span class="text-sm border text-gray-500 rounded-xl px-2 py-1"
+  ><span class="rounded-xl border px-2 py-1 text-sm text-gray-500"
     >This article</span
   >
 </div>
 
-<article class="py-4 sm:pb-24 markdown">
-  <div class="flex flex-row items-center justify-between mb-4">
-    <div class="text-xl font-serif">{{page.title}}</div>
+<article class="markdown py-4 sm:pb-24">
+  <div class="mb-4 flex flex-row items-center justify-between">
+    <h1 class="font-serif !text-xl">{{page.title}}</h1>
     {% if page.link %}
     <a
       href="{{page.link}}"
-      class="font-sans px-2 py-1 text-sm bg-blue-50 rounded-lg flex items-center gap-2 interact-bounce w-max h-max no-underline"
+      class="interact-bounce flex h-max w-max items-center gap-2 rounded-lg bg-blue-50 px-2 py-1 font-sans text-sm no-underline"
       style="text-decoration-line: none"
       >{{page.link_name}}
       <svg
