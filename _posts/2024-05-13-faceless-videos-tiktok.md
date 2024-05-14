@@ -3,7 +3,7 @@ layout: post
 title: "Generating capations for faceless TikTok videos"
 date: 2024-05-13 10:53:08 +0700
 categories: jekyll update
-link: github.com/al3rez
+link: https://github.com/al3rez
 link_name: View Github
 ---
 
