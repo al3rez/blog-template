@@ -1,0 +1,228 @@
+---
+title: A Thoughtful Coder
+layout: default
+---
+
+<!-- Header -->
+<header class="g-header text-s items-center px-4 py-1">
+  <nav class="flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="/images/logo.png" alt="Logo" class="g-logo" width="32" height="32" />
+      <span class="text-sm">{{page.title}}</span>
+    </div>
+    <ul class="flex gap-4">
+      <li><a href="/">All Articles</a></li>
+      <li><a href="/about">Author</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Left column placeholder -->
+<div class="g-left"></div>
+
+<!-- Content -->
+<main class="g-content">
+  <div class="layout-container-content">
+    <h1 class="py-8 font-serif text-2xl font-bold leading-8">Welcome to {{page.title}}: Longform</h1>
+    <p class="py-4 font-serif">
+      <i>Articles from building SaaS over one and half decade, both as an freelancer and indie hacker.</i>
+    </p>
+    <div class="search-area flex items-center justify-between">
+      <span class="sort flex items-center gap-2">
+        <span>Sort By:</span>
+        <button id="by-weight" class="current flex items-center" onclick="setSort(this)">Popularity</button>
+        <button id="by-date" onclick="setSort(this)">Newest</button>
+      </span>
+      <span class="search"> 🔍<input id="search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" /> </span>
+    </div>
+    <div id="no-results">No articles match the search string.</div>
+
+    <ul class="page-list" id="page-list">
+      {% for post in site.posts %}
+      <li id="slug-chaos-at-start" style="order: 40" class="rounded-lg">
+        <a href="/chaos-at-start/" aria-label="Read full article: It's a torturous chaos until it isn't">
+          <div class="featured-image">
+            <picture class="screenshot transparent composed wide dark-invert">
+              <source
+                srcset="https://longform.asmartbear.com/chaos-at-start/thumbnail-1200w_huaf80bc58f992632fce3256efe9e707ec_57463_1200x0_resize_q75_h3_mitchellnetravali_3.webp 1200w"
+                sizes="(min-width: 40.000rem) 22.500rem, 100vw"
+                type="image/webp"
+                media="screen"
+              />
+              <img
+                src="/chaos-at-start/thumbnail-1200w.png"
+                style="width: 1200px; height: auto; max-width: 100%; aspect-ratio: 1.8987341772151898; background: 0 0"
+                loading="lazy"
+                decoding="async"
+                alt="Hero image for It's a torturous chaos until it isn't"
+              />
+            </picture>
+          </div>
+          <div class="text-container">
+            <div class="title">It's a torturous chaos until it isn't</div>
+            <div class="summary">
+              Even at wildly successful startups, the first few years are gut-wrenching, uncertain, on the brink of collapse, where pessimism is realism, and yet optimism is
+              required.
+              <span class="date">—April 2024</span>
+              <span class="date">| 1,200 words.</span>
+            </div>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
+
+<!-- Right column -->
+<div class="g-right">
+  <div id="nav-sidebar-src-container" class="card-stack">
+    <div class="social card card-no-sep">
+      <ul class="social-icons">
+        <li id="twitter">
+          <a href="https://twitter.com/intent/user?screen_name=asmartbear" target="_blank" title="Twitter">
+            <picture>
+              <source
+                srcset="
+                  https://longform.asmartbear.com/images/twitter-29w.webp 29w,
+                  https://longform.asmartbear.com/images/twitter-58w.webp 58w,
+                  https://longform.asmartbear.com/images/twitter-87w.webp 87w
+                "
+                sizes="1.8125rem"
+                type="image/webp"
+                media="screen"
+              />
+              <img src="/images/twitter-29w.png" alt="Twitter" style="width: 1.8125rem; height: 1.5rem" loading="lazy" decoding="async" />
+            </picture>
+          </a>
+        </li>
+        <li id="linkedin">
+          <a href="http://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&amp;followMember=jasoncohen" target="_blank" title="LinkedIn">
+            <picture>
+              <source
+                srcset="
+                  https://longform.asmartbear.com/images/linkedin-24w.webp 24w,
+                  https://longform.asmartbear.com/images/linkedin-48w.webp 48w,
+                  https://longform.asmartbear.com/images/linkedin-72w.webp 72w
+                "
+                sizes="1.5rem"
+                type="image/webp"
+                media="screen"
+              />
+              <img src="/images/linkedin-24w.png" alt="LinkedIn" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+            </picture>
+          </a>
+        </li>
+        <li id="threads">
+          <a href="https://www.threads.net/@theasmartbear" target="_blank" title="Threads">
+            <picture>
+              <source
+                srcset="
+                  https://longform.asmartbear.com/images/threads-21w.webp 21w,
+                  https://longform.asmartbear.com/images/threads-42w.webp 42w,
+                  https://longform.asmartbear.com/images/threads-63w.webp 63w
+                "
+                sizes="1.3125rem"
+                type="image/webp"
+                media="screen"
+              />
+              <img src="/images/threads-21w.png" alt="Threads" class="dark-invert" style="width: 1.3125rem; height: 1.5rem" loading="lazy" decoding="async" />
+            </picture>
+          </a>
+        </li>
+        <li id="rss">
+          <a href="/index.xml" target="_blank" title="RSS">
+            <picture>
+              <source
+                srcset="
+                  https://longform.asmartbear.com/images/rss-24w.webp 24w,
+                  https://longform.asmartbear.com/images/rss-48w.webp 48w,
+                  https://longform.asmartbear.com/images/rss-72w.webp 72w
+                "
+                sizes="1.5rem"
+                type="image/webp"
+                media="screen"
+              />
+              <img src="/images/rss-24w.png" alt="RSS" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+            </picture>
+          </a>
+        </li>
+        <li id="newsletter">
+          <a href="/subscribe/" target="_blank" title="Subscribe to articles">
+            <picture>
+              <source
+                srcset="
+                  https://longform.asmartbear.com/images/newsletter-24w.webp 24w,
+                  https://longform.asmartbear.com/images/newsletter-48w.webp 48w,
+                  https://longform.asmartbear.com/images/newsletter-72w.webp 72w
+                "
+                sizes="1.5rem"
+                type="image/webp"
+                media="screen"
+              />
+              <img src="/images/newsletter-24w.png" alt="Subscribe to articles" class="dark-invert" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+            </picture>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="newsletter-signup-sidebar" class="newsletter-signup newsletter-signup-sidebar">
+      <script>
+        window.addEventListener("load", function () {
+          let e = document.createElement("script");
+          (e.type = "text/javascript"),
+            (e.src = "https://f.convertkit.com/ckjs/ck.5.js"),
+            e.setAttribute("async", ""),
+            e.setAttribute("defer", ""),
+            document.getElementsByTagName("head")[0].appendChild(e);
+        });
+      </script>
+      <form
+        action="https://app.convertkit.com/forms/4832087/subscriptions"
+        class="seva-form formkit-form"
+        method="post"
+        data-sv-form="4832087"
+        data-uid="337e1b31fa"
+        data-format="inline"
+        data-version="5"
+        data-options='{"settings":{"after_subscribe":{"action":"redirect","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":"https://longform.asmartbear.com/thank-you"},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://convertkit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"hide","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+        min-width="400 500 600 700 800"
+      >
+        <div class="formkit-background"></div>
+        <div data-style="minimal">
+          <div class="formkit-header" data-element="header">
+            <h2><u>Don't miss the next article.</u><br /></h2>
+          </div>
+          <div class="formkit-subheader" data-element="subheader">
+            <p>&ZeroWidthSpace;</p>
+          </div>
+          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+          <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+            <div class="formkit-field">
+              <input
+                class="formkit-input"
+                name="email_address"
+                aria-label="Email Address"
+                placeholder="Email Address"
+                required=""
+                type="email"
+                style="color: #000; border-color: #e3e3e3; border-radius: 4px; font-weight: 400"
+              />
+            </div>
+            <button data-element="submit" class="formkit-submit formkit-submit">
+              <div class="formkit-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <span>&nbsp; &nbsp;Subscribe&nbsp; &nbsp;</span>
+            </button>
+          </div>
+          <div class="formkit-guarantee" data-element="guarantee">
+            <p></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

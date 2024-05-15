@@ -1,24 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-WSBL7EYHMD"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSBL7EYHMD"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/main.css" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="canonical" href="https://blog.al3rez.com" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="canonical" href="https://athoughtfulcoder.com" />
     <title>{{page.title}}</title>
     {% seo %}
   </head>
   <body>
-    <div class="flex justify-center px-4 py-8 sm:h-full sm:py-24">
-      <div class="flex w-full max-w-xl flex-col gap-2">{{content}}</div>
-    </div>
+    <div class="grid-rows[auto_auto_1fr_auto] layout-two-column grid">{{content}}</div>
     {% include consent.html %}
   </body>
 </html>

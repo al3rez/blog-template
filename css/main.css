@@ -1,1 +1,1008 @@
-/*! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-feature-settings:normal;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-variation-settings:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:initial}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:initial;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:initial}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]{display:none}*,::backdrop,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.mb-4{margin-bottom:1rem}.flex{display:flex}.h-3{height:.75rem}.h-4{height:1rem}.h-max{height:-moz-max-content;height:max-content}.w-3{width:.75rem}.w-4{width:1rem}.w-full{width:100%}.w-max{width:-moz-max-content;width:max-content}.max-w-xl{max-width:36rem}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:.5rem}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity))}.px-2{padding-left:.5rem;padding-right:.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-bottom:.25rem;padding-top:.25rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-8{padding-bottom:2rem;padding-top:2rem}.\!font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji!important}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.\!text-xl{font-size:1.25rem!important;line-height:1.75rem!important}.text-sm{font-size:.875rem;line-height:1.25rem}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.no-underline{text-decoration-line:none}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.interact-bounce{transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.interact-bounce:hover{--tw-scale-x:103%;--tw-scale-y:103%;opacity:.9}.interact-bounce:active,.interact-bounce:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.interact-bounce:active{--tw-scale-x:98%;--tw-scale-y:98%}.inner-pattern{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity));background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%23ececec' fill-opacity='.95' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E")}.dark-pattern{background-image:repeating-linear-gradient(45deg,#fff,#fff .7px,#60212100 0,#60212100 50%);background-size:4px 4px;opacity:.8}.bg-dot-pattern{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%23a8a29e' fill-opacity='.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E")}.btn-xs{--tw-shadow:0 1px 2px 0 #0000000d;--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);align-items:center;border-radius:.5rem;border-width:1px;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);display:flex;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-size:.75rem;gap:.5rem;justify-content:space-between;line-height:1rem;margin-right:.25rem;padding:.25rem .5rem;transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);width:-moz-max-content;width:max-content}.btn-xs:hover{--tw-scale-x:103%;--tw-scale-y:103%;opacity:.9}.btn-xs:active,.btn-xs:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-xs:active{--tw-scale-x:98%;--tw-scale-y:98%}.btn-xs:hover{--tw-border-opacity:1;--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity));border-color:rgb(209 213 219/var(--tw-border-opacity));text-decoration-line:none}.btn-sm{--tw-shadow:0 1px 2px 0 #0000000d;--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);align-items:center;border-radius:.5rem;border-width:1px;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);display:flex;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-size:.875rem;gap:.5rem;justify-content:space-between;line-height:1.25rem;margin-right:.25rem;padding:.25rem .5rem;transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);width:-moz-max-content;width:max-content}.btn-sm:hover{--tw-scale-x:103%;--tw-scale-y:103%;opacity:.9}.btn-sm:active,.btn-sm:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-sm:active{--tw-scale-x:98%;--tw-scale-y:98%}.btn-sm:hover{--tw-border-opacity:1;--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity));border-color:rgb(209 213 219/var(--tw-border-opacity));text-decoration-line:none}.btn-big-blue{--tw-border-opacity:1;--tw-gradient-from:#2563eb var(--tw-gradient-from-position);--tw-gradient-to:#2563eb00 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to);--tw-gradient-to:#3b82f6 var(--tw-gradient-to-position);--tw-text-opacity:1;--tw-shadow:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);align-items:center;background-image:linear-gradient(to top,var(--tw-gradient-stops));border-color:rgb(37 99 235/var(--tw-border-opacity));border-radius:.5rem;border-width:1px;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);color:rgb(255 255 255/var(--tw-text-opacity));display:flex;font-size:.875rem;font-weight:500;gap:1rem;justify-content:space-between;line-height:1.25rem;padding:.5rem 1rem;transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.btn-big-blue:hover{--tw-scale-x:101%;--tw-scale-y:101%;opacity:.9}.btn-big-blue:active,.btn-big-blue:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-big-blue:active{--tw-scale-x:99%;--tw-scale-y:99%}.btn-big-gray{--tw-border-opacity:1;--tw-bg-opacity:1;--tw-text-opacity:1;--tw-shadow:0 1px 2px 0 #0000000d;--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);align-items:center;background-color:rgb(249 250 251/var(--tw-bg-opacity));border-color:rgb(229 231 235/var(--tw-border-opacity));border-radius:.5rem;border-width:1px;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);display:flex;flex:1 1 0%;font-size:.875rem;font-weight:500;gap:1rem;justify-content:space-between;line-height:1.25rem;padding:.5rem 1rem;transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.btn-big-gray,.btn-big-gray:hover{color:rgb(75 85 99/var(--tw-text-opacity))}.btn-big-gray:hover{--tw-scale-x:101%;--tw-scale-y:101%;--tw-border-opacity:1;--tw-bg-opacity:1;--tw-text-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity));border-color:rgb(209 213 219/var(--tw-border-opacity));opacity:.9;text-decoration-line:none}.btn-big-gray:active,.btn-big-gray:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.btn-big-gray:active{--tw-scale-x:99%;--tw-scale-y:99%}.pattern{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity));background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill='%23ececec' fill-opacity='.95' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E")}.markdown h1{font-size:1.5rem;line-height:2rem}.markdown h1,.markdown h2{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif;padding-bottom:.5rem;padding-top:.5rem}.markdown h2{font-size:1.25rem;line-height:1.75rem}.markdown h3{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif;padding-bottom:.5rem;padding-top:.5rem}.markdown p,ul{--tw-text-opacity:1;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;padding-bottom:1rem}.markdown p,.markdown pre,ul{color:rgb(17 24 39/var(--tw-text-opacity));font-size:.875rem;line-height:1.25rem}.markdown pre{--tw-bg-opacity:1;--tw-text-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity));border-radius:.5rem;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;margin-bottom:1rem;padding:1rem;white-space:pre-wrap}.markdown ul li{list-style-position:inside;padding-left:.5rem}.markdown a{--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity));text-decoration-line:underline}.markdown ol,.markdown ul{font-size:.875rem;line-height:1.25rem;list-style-position:inside;padding-bottom:.5rem;padding-left:.5rem}.markdown ol li{list-style-type:decimal}.markdown ul li{list-style-type:disc}.dialog-overlay{animation:overlayShow .15s cubic-bezier(.16,1,.3,1);background-color:#0e12160d;inset:0;position:fixed}.dialog-content{animation:contentShow .15s cubic-bezier(.16,1,.3,1);box-shadow:0 10px 38px -10px #0e121659,0 10px 20px -15px #0e121633;left:50%;position:fixed;top:25%;transform:translate(-50%,-50%)}@media (min-width:640px){.sm\:h-full{height:100%}.sm\:py-24{padding-top:6rem}.sm\:pb-24,.sm\:py-24{padding-bottom:6rem}}
+/*
+! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+*/
+
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden] {
+  display: none;
+}
+
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.collapse {
+  visibility: collapse;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.bg-blue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.\!text-xl {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.leading-8 {
+  line-height: 2rem;
+}
+
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.no-underline {
+  text-decoration-line: none;
+}
+
+.grayscale {
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+:root {
+  --link-visited-color: #05b;
+  --link-hover-color: #5ea7ff;
+  --color-900: #000;
+  --color-800: rgba(0, 0, 0, 0.8);
+  --color-700: rgba(0, 0, 0, 0.6);
+  --color-600: rgba(0, 0, 0, 0.45);
+  --color-500: rgba(0, 0, 0, 0.4);
+  --color-400: rgba(0, 0, 0, 0.23);
+  --color-300: rgba(0, 0, 0, 0.15);
+  --color-200: rgba(0, 0, 0, 0.1);
+  --color-100: rgba(0, 0, 0, 0.04);
+  --color-000: rgba(0, 0, 0, 0);
+  --main-background: #fcfcff;
+  --main-color: #000;
+  --raised-background: #fff;
+  --raised-color: #000;
+  --form-background: #fff;
+  --form-color: #000;
+  --form-submit-background: #d43802;
+  --form-submit-color: #fff;
+  --button-background: #a2ea76;
+  --button-color: #000;
+  --error-border: #c00;
+  --error-background: #fff0f0;
+  --error-color: #000;
+  --highlight-background: #ffffa0;
+  --highlight-color: #000;
+  --link-color: #05b;
+  --link-button-background: #bee6f0;
+  --link-button-color: #05b;
+  --bear-color: #577544;
+  --link-text-decoration: underline;
+  --line-height-tight: 1.3;
+  --border-radius: 0.5rem;
+  --box-shadow: 0px 4px 4px -4px #000000c0, 0px 4px 4px 0px #00000040, 0px 1px 2px 2px #00000020;
+  --filter-shadow: drop-shadow(1px 2px 1px #222);
+  --filter-dark-mode: ;
+  --filter-light-invert: brightness(0.7) contrast(1) invert(1) hue-rotate(180deg);
+  --filter-dark-invert: ;
+  --font-size-larger: 1.9rem;
+  --line-height-larger: 1.3;
+  --font-size-large: 1.4625rem;
+  --line-height-large: 1.3;
+  --font-size-normal: 1.125rem;
+  --line-height-normal: 1.6;
+  --font-size-small: 1rem;
+  --line-height-small: 1.45;
+  --font-size-smaller: 0.875rem;
+  --line-height-smaller: 1.3;
+  --font-weight-bold: 700;
+  --letter-spacing-bold: 0;
+}
+
+h1,
+h2,
+h3 {
+  clear: both;
+}
+
+main {
+  font-family:
+    charter,
+    Georgia,
+    Cambria,
+    times new roman,
+    Times,
+    serif;
+  letter-spacing: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.layout-two-column {
+  grid-template-areas:
+    "header header header header"
+    "l top . r"
+    "l content right r"
+    "l bottom . r";
+  grid-template-columns: minmax(1rem, 1fr) minmax(auto, 45rem) 20rem minmax(1rem, 1fr);
+}
+
+.g-content {
+  grid-area: content;
+}
+
+.g-header {
+  box-shadow: var(--box-shadow);
+  grid-area: header;
+}
+
+.g-left {
+  grid-area: left;
+  display: none;
+  padding-right: 6rem;
+}
+
+ul.page-list .featured-image,
+ul.page-list > li {
+  transition-property: box-shadow, rotate, scale, translate, filter, color, background;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ul.page-list .featured-image,
+  ul.page-list > li {
+    transition-duration: 0s;
+    animation-duration: 0s;
+  }
+}
+
+ul.page-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  cursor: pointer;
+}
+
+ul.page-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul.page-list > li {
+  width: calc(50% - 0.75rem);
+  box-shadow: var(--box-shadow);
+  background: var(--color-100);
+  overflow: clip;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  ul.page-list > li:hover {
+    rotate: -1deg;
+    scale: 105%;
+    background: var(--raised-background);
+    color: var(--raised-color);
+    box-shadow:
+      -1px 5px 3px -4px #00000080,
+      -2px 6px 4px #00000040,
+      -1px 2px 2px 2px #00000020;
+  }
+
+  ul.page-list > li:hover .featured-image {
+    filter: saturate(120%) contrast(120%) !important;
+  }
+}
+
+ul.page-list .featured-image {
+  width: 100%;
+  border-bottom: 1px solid var(--color-300);
+}
+
+ul.page-list .featured-image > picture > img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  -o-object-fit: fit;
+     object-fit: fit;
+  display: block;
+}
+
+ul.page-list .text-container {
+  padding: 0.5rem 0.75rem 1rem;
+  color: var(--color-800);
+  font-size: var(--font-size-smaller);
+  line-height: var(--line-height-smaller);
+  height: 100%;
+}
+
+ul.page-list .text-container > .title {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1ex;
+}
+
+ul.page-list .text-container > .summary > .date {
+  white-space: nowrap;
+}
+
+#no-results {
+  display: none;
+  width: 100%;
+  height: 10rem;
+  padding: 3rem;
+  text-align: center;
+}
+
+.search-area {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  display: flex;
+  gap: 1rem 2rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-area span {
+  white-space: nowrap;
+}
+
+.search-area > span.search > input {
+  margin-left: 0.5rem;
+  width: Min(20rem, calc(100vw - 4rem));
+}
+
+.search-area input,
+.search-area button {
+  border: 1px solid var(--color-400);
+  padding: 0.5ex 0.75em;
+  height: calc(2rem + 2px);
+}
+
+.search-area input {
+  background: var(--form-background);
+  color: var(--form-color);
+  padding-left: 0.5em;
+}
+
+.search-area button {
+  background: var(--button-background);
+  color: var(--button-color);
+  border-radius: 0.75ex;
+  cursor: pointer;
+  width: 6.5rem;
+  text-align: center;
+}
+
+.search-area button:active {
+  filter: brightness(120%);
+}
+
+.search-area .current {
+  filter: brightness(120%);
+  border: 2px solid var(--color-800);
+  height: 2rem;
+}
+
+.search-area button.current {
+  filter: brightness(120%);
+}
+
+.highlighted-search-term {
+  background: var(--highlight-background);
+  color: var(--highlight-color);
+}
+
+.g-right {
+  grid-area: right;
+  display: none;
+  padding-left: 6rem;
+}
+
+header {
+  font-family:
+    helvetica neue,
+    roboto,
+    system-ui,
+    segoe ui,
+    helvetica neue,
+    arial,
+    sans-serif;
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  .sm\:pb-24 {
+    padding-bottom: 6rem;
+  }
+}
