@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Generating capations for faceless TikTok videos"
+title: I tried automating faceless Youtube shorts in 60 minutes
 date: 2024-05-13 10:53:08 +0700
 categories: jekyll update
 link: https://github.com/al3rez
 link_name: View Github
-thumbnail_url: /images/thumbnail.webp
+thumbnail_url: /images/faceless.webp
 ---
 
 Faceless videos are starting to become popular, so I decided to build a tool

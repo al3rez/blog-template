@@ -2,91 +2,21 @@
 layout: default
 ---
 
-<div class="flex items-center gap-2">
-  <a
-    class="interact-bounce flex items-center gap-2 rounded-xl bg-gray-100 px-2 py-1 font-sans text-sm text-gray-700"
-    href="https://devmason.io"
-    ><svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      aria-hidden="true"
-      data-slot="icon"
-      class="h-4 w-4"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-      ></path></svg
-    >Go back</a
-  ><svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    aria-hidden="true"
-    data-slot="icon"
-    class="h-3 w-3 text-gray-400"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      d="m8.25 4.5 7.5 7.5-7.5 7.5"
-    ></path></svg
-  ><a
-    class="interact-bounce flex items-center gap-2 rounded-xl bg-gray-100 px-2 py-1 text-sm text-gray-700"
-    href="/"
-    >The blog</a
-  ><svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    aria-hidden="true"
-    data-slot="icon"
-    class="h-3 w-3 text-gray-400"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      d="m8.25 4.5 7.5 7.5-7.5 7.5"
-    ></path></svg
-  ><span class="rounded-xl border px-2 py-1 text-sm text-gray-500"
-    >This article</span
-  >
+<div class="biline">
+  <div class="headerTabSpacer hidden-when-right-menu-visible">&nbsp;</div>
+  <div class="author hidden-when-right-menu-visible">
+    <a href="/jason-cohen/" rel="author">Jason Cohen</a>
+  </div>
+  <div class="published">{{page.date | date: "%B %d, %Y"}}</div>
+  <div class="reading-time">Reading time: {{content | number_of_words | divided_by: 180 | ceil | append: " min"}}</div>
+  <a class="download-pdf" href="/product-market-fit-formula/product-market-fit-formula.pdf" target="_blank">
+    <img src="/images/pdf-64.png" alt="PDF Logo" class="icon" style="height: 2.5ex; width: 2.5ex; margin-bottom: -0.5ex; margin-left: 1px" />
+    Printable PDF </a
+  ><br />
 </div>
 
-<article class="markdown py-4 sm:pb-24">
-  <div class="mb-4 flex flex-row items-center justify-between">
-    <h1 class="font-serif !text-xl">{{page.title}}</h1>
-    {% if page.link %}
-    <a
-      href="{{page.link}}"
-      class="interact-bounce flex h-max w-max items-center gap-2 rounded-lg bg-blue-50 px-2 py-1 font-sans text-sm no-underline"
-      style="text-decoration-line: none"
-      >{{page.link_name}}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        aria-hidden="true"
-        data-slot="icon"
-        class="h-3 w-3"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-        ></path></svg
-    ></a>
-    {% endif %}
-  </div>
-  <div class="grayscale">{{content}}</div>
+<article class="h-entry item markdown">
+  <h1 class="p-name article" id="article-title">{{page.title}}</h1>
+  <div class="print-biline">by {{site.author}} on {{page.date | date: "%B %d, %Y"}}</div>
+  <div class="e-content longform">{{content}}</div>
 </article>
