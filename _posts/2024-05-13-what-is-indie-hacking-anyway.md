@@ -3,6 +3,7 @@ layout: post
 title: "What is indie hacking anyway?"
 date: 2024-05-13 15:15:08 +0700
 categories: indiehacking
+thumbnail_url: /images/thumbnail.webp
 ---
 
 Everyone has a different take on "what/who is an indie hacker?" Here's my take:

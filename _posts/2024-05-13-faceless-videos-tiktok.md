@@ -5,6 +5,7 @@ date: 2024-05-13 10:53:08 +0700
 categories: jekyll update
 link: https://github.com/al3rez
 link_name: View Github
+thumbnail_url: /images/thumbnail.webp
 ---
 
 Faceless videos are starting to become popular, so I decided to build a tool

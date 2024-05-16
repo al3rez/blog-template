@@ -5,15 +5,43 @@ layout: default
 
 <!-- Header -->
 <header class="g-header text-s items-center px-4 py-1">
-  <nav class="flex items-center justify-between">
+  <nav class="flex items-center justify-between text-lg">
     <div class="flex items-center gap-4">
       <img src="/images/logo.png" alt="Logo" class="g-logo" width="32" height="32" />
-      <span class="text-sm">{{page.title}}</span>
+      <span>{{page.title}}</span>
     </div>
-    <ul class="flex gap-4">
-      <li><a href="/">All Articles</a></li>
-      <li><a href="/about">Author</a></li>
-    </ul>
+    <div>
+      <div class="visible-when-right-menu-visible">
+        <ul class="nav-menu-items">
+          <li>
+            <a href="/">All Articles</a>
+          </li>
+          <li>
+            <a href="/alireza-bashiri/">Author</a>
+          </li>
+        </ul>
+      </div>
+      <label class="toggle hidden-when-right-menu-visible" accesskey="m" title="Open Menu (Alt + M)" aria-label="Mobile menu">
+        <div class="menuToggle">
+          <input class="ham" type="checkbox" id="nav-menu-checkbox" aria-label="Mobile menu" />
+          <span class="ham"></span>
+          <span class="ham"></span>
+          <span class="ham"></span>
+          <div class="nav-menu">
+            <ul class="nav-menu-items">
+              <li>
+                <a href="/">All Articles</a>
+              </li>
+              <li>
+                <a href="/alireza-bashiri/">Author</a>
+              </li>
+            </ul>
+            <div id="nav-sidebar-duplicate-container"></div>
+          </div>
+          <div class="dim-everything-overlay"></div>
+        </div>
+      </label>
+    </div>
   </nav>
 </header>
 
@@ -23,48 +51,42 @@ layout: default
 <!-- Content -->
 <main class="g-content">
   <div class="layout-container-content">
-    <h1 class="py-8 font-serif text-2xl font-bold leading-8">Welcome to {{page.title}}: Longform</h1>
-    <p class="py-4 font-serif">
+    <h1 class="pt-8 font-bold leading-8">Welcome to {{page.title}}: Longform</h1>
+    <p class="py-4">
       <i>Articles from building SaaS over one and half decade, both as an freelancer and indie hacker.</i>
     </p>
     <div class="search-area flex items-center justify-between">
       <span class="sort flex items-center gap-2">
         <span>Sort By:</span>
-        <button id="by-weight" class="current flex items-center" onclick="setSort(this)">Popularity</button>
+        <button id="by-weight" class="flex items-center" onclick="setSort(this)">Popularity</button>
         <button id="by-date" onclick="setSort(this)">Newest</button>
       </span>
-      <span class="search"> 🔍<input id="search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" /> </span>
+      <span class="search"> 🔍<input id="search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" oninput="setSort(this)" /> </span>
     </div>
-    <div id="no-results">No articles match the search string.</div>
+    <div id="no-results" style="display: none">No articles match the search string.</div>
 
     <ul class="page-list" id="page-list">
       {% for post in site.posts %}
-      <li id="slug-chaos-at-start" style="order: 40" class="rounded-lg">
-        <a href="/chaos-at-start/" aria-label="Read full article: It's a torturous chaos until it isn't">
+      <li id="{{ post.slug }}" style="order: {{ forloop.index }}" class="rounded-lg">
+        <a href="{{ post.url }}" aria-label="Read full article: {{ post.title }}">
           <div class="featured-image">
             <picture class="screenshot transparent composed wide dark-invert">
-              <source
-                srcset="https://longform.asmartbear.com/chaos-at-start/thumbnail-1200w_huaf80bc58f992632fce3256efe9e707ec_57463_1200x0_resize_q75_h3_mitchellnetravali_3.webp 1200w"
-                sizes="(min-width: 40.000rem) 22.500rem, 100vw"
-                type="image/webp"
-                media="screen"
-              />
+              <source srcset="{{ post.thumbnail_srcset }}" sizes="(min-width: 40.000rem) 22.500rem, 100vw" type="image/webp" media="screen" />
               <img
-                src="/chaos-at-start/thumbnail-1200w.png"
+                src="{{ post.thumbnail_url }}"
                 style="width: 1200px; height: auto; max-width: 100%; aspect-ratio: 1.8987341772151898; background: 0 0"
                 loading="lazy"
                 decoding="async"
-                alt="Hero image for It's a torturous chaos until it isn't"
+                alt="Hero image for {{ post.title }}"
               />
             </picture>
           </div>
           <div class="text-container">
-            <div class="title">It's a torturous chaos until it isn't</div>
+            <div class="title">{{ post.title }}</div>
             <div class="summary">
-              Even at wildly successful startups, the first few years are gut-wrenching, uncertain, on the brink of collapse, where pessimism is realism, and yet optimism is
-              required.
-              <span class="date">—April 2024</span>
-              <span class="date">| 1,200 words.</span>
+              {{ post.excerpt }}
+              <span class="date">—{{ post.date | date: "%B %Y" }}</span>
+              <span class="date">| {{ post.content | number_of_words }} words.</span>
             </div>
           </div>
         </a>
