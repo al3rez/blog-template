@@ -173,7 +173,7 @@ layout: default
     <div class="layout-container-top"></div>
     <div class="layout-container-left"></div>
     <div class="layout-container-content">
-      <h1>Welcome to {{page.title}}: Longform</h1>
+      <h1 class="">Welcome to {{page.title}}: Longform</h1>
       <p>
         <i>Articles from building SaaS over one and a half decades, both as a freelancer and indie hacker.</i>
       </p>
@@ -214,11 +214,11 @@ layout: default
               </picture>
             </div>
             <div class="text-container">
-              <div class="title">Excuse me, is there a problem?</div>
+              <div class="title">{{post.title}}</div>
               <div class="summary">
-                Many startups fail despite identifying a real problem and building a product that solves that problem. This explains why, so you can avoid their fate.
-                <span class="date">—April 2023</span>
-                <span class="date">| 6,800 words.</span>
+                {{post.excerpt}}
+                <span class="date">—{{post.date | date: "%B %Y"}}</span>
+                <span class="date">| {{post.content | number_of_words}} words.</span>
               </div>
             </div>
           </a>
