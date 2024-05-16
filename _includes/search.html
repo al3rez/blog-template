@@ -1,0 +1,104 @@
+<script defer="" src="/js/flexsearch.min.js"></script>
+<script>
+  "use strict";
+  (function () {
+    const u = "/en.search-data.min.05a5108fa1c72b76c921091dba23252f331fe0b09f4076f35f15163e2e281718.json",
+      g = Object.assign({}, { doc: { id: "id", field: ["title", "content"], store: ["section", "slug"] } }),
+      e = document.getElementById("search-input"),
+      o = document.getElementById("page-list"),
+      r = document.getElementById("no-results");
+    if (!e) return;
+    let c = "",
+      s = "",
+      t = "by-weight",
+      a = !0,
+      i = [];
+    (window.orderedSearchSlugs = null), e.addEventListener("focus", n), e.addEventListener("input", n), e.addEventListener("change", n), document.addEventListener("keypress", m);
+    function h() {
+      const t = queryArgs.s;
+      t && ((e.value = t), n());
+    }
+    window.addEventListener("load", h);
+    function m(t) {
+      if (t.target.value !== void 0) return;
+      if (e === document.activeElement) return;
+      const n = String.fromCharCode(t.charCode);
+      if (!f(n)) return;
+      e.focus(), t.preventDefault();
+    }
+    function f(t) {
+      const n = e.getAttribute("data-hotkeys") || "";
+      return n.indexOf(t) >= 0;
+    }
+    function p() {
+      if (((e.required = !0), window.searchIndex)) {
+        n();
+        return;
+      }
+      fetch(u)
+        .then((e) => e.json())
+        .then((e) => {
+          (window.searchIndex = FlexSearch.create("balance", g)), window.searchIndex.add(e);
+        })
+        .then(() => (e.required = !1))
+        .then(n);
+    }
+    function n() {
+      if ((l(), !a)) return;
+      if (!window.searchIndex) {
+        p();
+        return;
+      }
+      if (((s = e.value), s == c)) return;
+      if (((c = s), (window.orderedSearchSlugs = null), s)) {
+        const e = window.searchIndex.search(s);
+        window.orderedSearchSlugs = e.map(function (e) {
+          return "slug-" + e.slug;
+        });
+      }
+      i = [];
+      for (let e of s.split(window.searchIndex.split)) e.length > 1 && i.push(e.toLowerCase());
+      window.setSort(e) || d();
+    }
+    function l() {
+      const t = e.value;
+      (queryArgs.s = t), (document.title = "A Thoughtful Coder" + (t ? ', "' + t + '" articles' : ""));
+    }
+    window.setSort = function (n) {
+      let s = n.id;
+      return (
+        s != t &&
+        ((n = document.getElementById(t)),
+        n && n.classList.remove("current"),
+        (n = document.getElementById(s)),
+        n && n.classList.add("current"),
+        s != "search-input" && ((a = !1), (e.value = ""), l(), (i = []), (a = !0)),
+        (t = s),
+        d(),
+        !0)
+      );
+    };
+    function d() {
+      let e = [];
+      if (t == "by-weight") e = window.slugsByWeight;
+      else if (t == "by-date") e = window.slugsByDateReverse;
+      else if (t == "search-input") e = window.orderedSearchSlugs == null ? window.slugsByWeight : window.orderedSearchSlugs;
+      else {
+        console.error("Unknown post sort-order:", t);
+        return;
+      }
+      if (e.length == 0) {
+        (r.style.display = "block"), (o.style.display = "none");
+        return;
+      }
+      (r.style.display = "none"), (o.style.display = "none");
+      const n = o.children;
+      for (let s = n.length; s-- > 0; ) {
+        const t = n[s],
+          o = e.indexOf(t.id);
+        o < 0 ? (t.style.display = "none") : ((t.style.display = "list-item"), (t.style.order = o));
+      }
+      o.style.display = "flex";
+    }
+  })();
+</script>

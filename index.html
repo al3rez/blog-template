@@ -4,138 +4,7 @@ layout: default
 ---
 
 <body>
-  <script>
-    const w = window,
-      wl = window.location,
-      mm = w.matchMedia,
-      mm_print = mm("print"),
-      mm_pref_dark = mm("(prefers-color-scheme: dark)"),
-      mm_has_mouse = mm("screen and (hover: hover) and (pointer: fine)"),
-      queryArgs = new Proxy(new URLSearchParams(wl.search), {
-        get: (e, t) => e.get(t),
-        set: (e, t, n) => {
-          if ((n == "" ? e.delete(t) : e.set(t, n), history.replaceState)) {
-            let t = e.toString();
-            t && (t = "?" + t);
-            const n = wl.origin + wl.pathname + t;
-            w.history.replaceState({}, "", n);
-          }
-          return !0;
-        },
-      });
-    function renameTag(e, t) {
-      let n = e.attributes.getNamedItem("src");
-      n && e.attributes.removeNamedItem(n.name);
-      let s = document.createElement(t);
-      e.parentNode.replaceChild(s, e);
-      for (const t of e.attributes) s.setAttribute(t.name, t.value);
-      (s.innerHTML = e.innerHTML), n && s.setAttribute(n.name, n.value);
-    }
-    var currTheme = "";
-    function getTheme() {
-      if (mm_print.matches) return "print";
-      const e = location.protocol;
-      if (e == "safari-reader:" || e == "about:" || e == "chrome-extension:") return "light";
-      const t = localStorage.getItem("theme");
-      return t ? t : mm_pref_dark.matches ? "dark" : "light";
-    }
-    function establishTheme(e) {
-      const t = getTheme();
-      if (!e && t == currTheme) return;
-      const n = t == "dark" ? "dark" : "light",
-        s = n == "light" ? "dark" : "light";
-      function o(e, t) {
-        e.removeAttribute("aria-hidden"), renameTag(e, t);
-      }
-      function i(e, t) {
-        e.setAttribute("aria-hidden", "true"), renameTag(e, t + "-disabled");
-      }
-      document.querySelectorAll("." + s + " img").forEach((e) => i(e, "img")),
-        document.querySelectorAll("picture." + s).forEach((e) => i(e, "picture")),
-        document.querySelectorAll("picture-disabled." + n).forEach((e) => o(e, "picture")),
-        document.querySelectorAll("." + n + " img-disabled").forEach((e) => o(e, "img")),
-        document.documentElement.setAttribute("data-theme", t),
-        (currTheme = t);
-    }
-    function toggleTheme(e) {
-      let n = getTheme(),
-        t;
-      if (e) t = "";
-      else if (n == "light") t = "dark";
-      else if (n == "dark") t = "light";
-      else return;
-      (n = localStorage.setItem("theme", t)), establishTheme();
-    }
-    function closeMobileNav() {
-      const e = document.getElementById("nav-menu-checkbox");
-      e && e.checked && (e.checked = !1);
-    }
-    mm_print.addEventListener("change", establishTheme),
-      mm_pref_dark.addEventListener("change", establishTheme),
-      w.addEventListener("pageshow", () => {
-        closeMobileNav(), establishTheme();
-      }),
-      establishTheme();
-    function getContentHeadings() {
-      return document.querySelectorAll("h1.article, h2.article, h3.article");
-    }
-    function getContentTableOfContentLinks() {
-      return document.querySelectorAll("nav#TableOfContents a");
-    }
-    function getHeadingScrollPositions() {
-      let n = Math.round(Math.max(w.innerHeight * 0.15, 100)),
-        e = getContentHeadings(),
-        t = new Array(e.length);
-      for (let s = 0; s < e.length; s++) t[s] = e[s].offsetTop - n;
-      return t;
-    }
-    function updateFromScroll() {
-      let o = w.scrollY,
-        e = getContentHeadings();
-      if (!e || !e.length) return;
-      let t = getContentTableOfContentLinks();
-      if (!t || !t.length) return;
-      let n = getHeadingScrollPositions(),
-        s = 0;
-      for (let e = 0; e < n.length; e++) {
-        if (n[e] > o) break;
-        s = e;
-      }
-      let i = "#" + e[s].id;
-      t.forEach((e) => {
-        let t = e.hash == i;
-        t ? e.classList.add("current") : e.classList.remove("current");
-      });
-    }
-    function scrollToHeading(e, t) {
-      let n = getContentHeadings();
-      for (let s = 0; s < n.length; ++s)
-        if (n[s].id == e) {
-          let e = getHeadingScrollPositions()[s],
-            n = w.scrollY;
-          Math.abs(e - n) > 10 && w.scroll({ top: e, behavior: t }), closeMobileNav();
-          break;
-        }
-    }
-    function headingEvent(e) {
-      e.preventDefault();
-      let t = e.target;
-      for (; !t.hash; ) t = t.parentNode;
-      let n = t.hash.substring(1);
-      scrollToHeading(n, "smooth");
-    }
-    function hookHeadings() {
-      (window.onscroll = updateFromScroll),
-        getContentTableOfContentLinks().forEach((e) => {
-          e.addEventListener("click", headingEvent);
-        });
-    }
-    const console_log = console.log;
-    console.log = (...e) => {
-      if (e.some((e) => typeof e == "string" && (e.toLowerCase().includes("sparkloop") || e.startsWith("Subscriber ID ")))) return;
-      console_log(...e);
-    };
-  </script>
+  {% include darkmode.html %}
   <div id="link-copied">Link<br />Copied</div>
   <div id="site-main" class="main-home layout-two-column">
     <div class="layout-container-header">
@@ -145,7 +14,7 @@ layout: default
             <img src="/images/logo.png" alt="Logo" style="aspect-ratio: 1.16496" />
           </div>
           <div class="brand-title ellipsis">
-            <a href="/" accesskey="h" title="Home (Alt + H)">A Thoughtful Coder </a>
+            <a href="/" accesskey="h" title="Home (Alt + H)">{{page.title}}</a>
           </div>
           <div class="visible-when-right-menu-visible">
             <ul class="nav-menu-items">
@@ -291,64 +160,7 @@ layout: default
                       </li>
                     </ul>
                   </div>
-                  <div id="newsletter-signup-sidebar" class="newsletter-signup newsletter-signup-sidebar">
-                    <script>
-                      window.addEventListener("load", function () {
-                        let e = document.createElement("script");
-                        (e.type = "text/javascript"),
-                          (e.src = "https://f.convertkit.com/ckjs/ck.5.js"),
-                          e.setAttribute("async", ""),
-                          e.setAttribute("defer", ""),
-                          document.getElementsByTagName("head")[0].appendChild(e);
-                      });
-                    </script>
-                    <form
-                      action="https://app.convertkit.com/forms/4832087/subscriptions"
-                      class="seva-form formkit-form"
-                      method="post"
-                      data-sv-form="4832087"
-                      data-uid="337e1b31fa"
-                      data-format="inline"
-                      data-version="5"
-                      data-options='{"settings":{"after_subscribe":{"action":"redirect","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":"https://longform.asmartbear.com/thank-you"},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://convertkit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"hide","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
-                      min-width="400 500 600 700 800"
-                    >
-                      <div class="formkit-background"></div>
-                      <div data-style="minimal">
-                        <div class="formkit-header" data-element="header">
-                          <h2><u>Don't miss the next article.</u><br /></h2>
-                        </div>
-                        <div class="formkit-subheader" data-element="subheader">
-                          <p>&ZeroWidthSpace;</p>
-                        </div>
-                        <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-                        <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-                          <div class="formkit-field">
-                            <input
-                              class="formkit-input"
-                              name="email_address"
-                              aria-label="Email Address"
-                              placeholder="Email Address"
-                              required=""
-                              type="email"
-                              style="color: #000; border-color: #e3e3e3; border-radius: 4px; font-weight: 400"
-                            />
-                          </div>
-                          <button data-element="submit" class="formkit-submit formkit-submit">
-                            <div class="formkit-spinner">
-                              <div></div>
-                              <div></div>
-                              <div></div>
-                            </div>
-                            <span>&nbsp; &nbsp;Subscribe&nbsp; &nbsp;</span>
-                          </button>
-                        </div>
-                        <div class="formkit-guarantee" data-element="guarantee">
-                          <p></p>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  {% include newsletter.html %}
                 </div>
               </div>
               <div class="dim-everything-overlay"></div>
@@ -361,7 +173,7 @@ layout: default
     <div class="layout-container-top"></div>
     <div class="layout-container-left"></div>
     <div class="layout-container-content">
-      <h1>Welcome to A Thoughtful Coder: Longform</h1>
+      <h1>Welcome to {{page.title}}: Longform</h1>
       <p>
         <i>Articles from building SaaS over one and a half decades, both as a freelancer and indie hacker.</i>
       </p>
@@ -413,114 +225,7 @@ layout: default
         </li>
         {% endfor %}
       </ul>
-      <script defer="" src="/js/flexsearch.min.js"></script>
-      <script>
-        "use strict";
-        (function () {
-          const u = "/en.search-data.min.05a5108fa1c72b76c921091dba23252f331fe0b09f4076f35f15163e2e281718.json",
-            g = Object.assign({}, { doc: { id: "id", field: ["title", "content"], store: ["section", "slug"] } }),
-            e = document.getElementById("search-input"),
-            o = document.getElementById("page-list"),
-            r = document.getElementById("no-results");
-          if (!e) return;
-          let c = "",
-            s = "",
-            t = "by-weight",
-            a = !0,
-            i = [];
-          (window.orderedSearchSlugs = null),
-            e.addEventListener("focus", n),
-            e.addEventListener("input", n),
-            e.addEventListener("change", n),
-            document.addEventListener("keypress", m);
-          function h() {
-            const t = queryArgs.s;
-            t && ((e.value = t), n());
-          }
-          window.addEventListener("load", h);
-          function m(t) {
-            if (t.target.value !== void 0) return;
-            if (e === document.activeElement) return;
-            const n = String.fromCharCode(t.charCode);
-            if (!f(n)) return;
-            e.focus(), t.preventDefault();
-          }
-          function f(t) {
-            const n = e.getAttribute("data-hotkeys") || "";
-            return n.indexOf(t) >= 0;
-          }
-          function p() {
-            if (((e.required = !0), window.searchIndex)) {
-              n();
-              return;
-            }
-            fetch(u)
-              .then((e) => e.json())
-              .then((e) => {
-                (window.searchIndex = FlexSearch.create("balance", g)), window.searchIndex.add(e);
-              })
-              .then(() => (e.required = !1))
-              .then(n);
-          }
-          function n() {
-            if ((l(), !a)) return;
-            if (!window.searchIndex) {
-              p();
-              return;
-            }
-            if (((s = e.value), s == c)) return;
-            if (((c = s), (window.orderedSearchSlugs = null), s)) {
-              const e = window.searchIndex.search(s);
-              window.orderedSearchSlugs = e.map(function (e) {
-                return "slug-" + e.slug;
-              });
-            }
-            i = [];
-            for (let e of s.split(window.searchIndex.split)) e.length > 1 && i.push(e.toLowerCase());
-            window.setSort(e) || d();
-          }
-          function l() {
-            const t = e.value;
-            (queryArgs.s = t), (document.title = "A Thoughtful Coder" + (t ? ', "' + t + '" articles' : ""));
-          }
-          window.setSort = function (n) {
-            let s = n.id;
-            return (
-              s != t &&
-              ((n = document.getElementById(t)),
-              n && n.classList.remove("current"),
-              (n = document.getElementById(s)),
-              n && n.classList.add("current"),
-              s != "search-input" && ((a = !1), (e.value = ""), l(), (i = []), (a = !0)),
-              (t = s),
-              d(),
-              !0)
-            );
-          };
-          function d() {
-            let e = [];
-            if (t == "by-weight") e = window.slugsByWeight;
-            else if (t == "by-date") e = window.slugsByDateReverse;
-            else if (t == "search-input") e = window.orderedSearchSlugs == null ? window.slugsByWeight : window.orderedSearchSlugs;
-            else {
-              console.error("Unknown post sort-order:", t);
-              return;
-            }
-            if (e.length == 0) {
-              (r.style.display = "block"), (o.style.display = "none");
-              return;
-            }
-            (r.style.display = "none"), (o.style.display = "none");
-            const n = o.children;
-            for (let s = n.length; s-- > 0; ) {
-              const t = n[s],
-                o = e.indexOf(t.id);
-              o < 0 ? (t.style.display = "none") : ((t.style.display = "list-item"), (t.style.order = o));
-            }
-            o.style.display = "flex";
-          }
-        })();
-      </script>
+      {% include search.html %}
     </div>
     <div class="layout-container-right">
       <div id="nav-sidebar-src-container" class="card-stack">
