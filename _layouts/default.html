@@ -1,24 +1,542 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-WSBL7EYHMD"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSBL7EYHMD"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/main.css" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="canonical" href="https://blog.al3rez.com" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="canonical" href="https://athoughtfulcoder.com" />
     <title>{{page.title}}</title>
+    <script>
+        window.slugsByWeight = [
+          {% for post in site.posts %}
+          "slug-{{post.slug}}",
+          {% endfor %}
+        ];
+
+        window.slugsByDateReverse = [
+          {% for post in site.posts reversed %}
+          "slug-{{post.slug}}",
+          {% endfor %}
+        ]
+        window.data = [
+            {% for post in site.posts %}
+            {
+                "id": {{forloop.index}},
+                "slug": "{{post.slug}}",
+                "href": "{{ post.url }}",
+                "title": "{{ post.title }}",
+                "section": "Articles",
+                "weight": {{forloop.index}},
+                "pubDate": "{{ post.date | date_to_xmlschema }}",
+                "categories": [
+                    {% for category in post.categories %}
+                        "{{ category }}"{% unless forloop.last %},{% endunless %}
+                    {% endfor %}
+                ],
+                "summary": "{{ post.excerpt | strip_html | strip_newlines }}",
+                "content": "{{ post.content | strip_html | strip_newlines }}"
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ];
+
+    </script>
     {% seo %}
   </head>
   <body>
-    <div class="flex justify-center px-4 py-8 sm:h-full sm:py-24">
-      <div class="flex w-full max-w-xl flex-col gap-2">{{content}}</div>
+    {% include darkmode.html %}
+    <div id="link-copied">Link<br />Copied</div>
+    <div id="site-main" class="main-home layout-two-column">
+      <div class="layout-container-header">
+        <header>
+          <nav>
+            <div class="brand-logo" onclick='document.location="/"'>
+              <img src="/images/logo.png" alt="Logo" style="aspect-ratio: 1.16496" />
+            </div>
+
+            {% if page.url == "/" %}
+            <div class="brand-title ellipsis">
+              <a href="/" accesskey="h" title="Home (Alt + H)">{{site.title}}</a>
+            </div>
+            {% else %}
+            <div class="brand-title ellipsis">
+              <a href="/" accesskey="h" title="Home (Alt + H)">{{site.title}} » {{page.title}}</a>
+            </div>
+            {% endif %}
+
+            <div class="visible-when-right-menu-visible">
+              <ul class="nav-menu-items">
+                <li>
+                  <a href="/">All Articles</a>
+                </li>
+                <li>
+                  <a href="/alireza-bashiri/">Author</a>
+                </li>
+              </ul>
+            </div>
+            <label class="toggle" accesskey="t" title="Change Theme (Alt + T)" onclick="toggleTheme()">
+              <span class="theme-button">
+                <span class="light-mode-visible"
+                  ><svg class="moon" aria-labelledby="title" width="1200pt" height="1200pt" viewBox="0 0 1200 1200">
+                    <title>Moon</title>
+                    <path
+                      d="m681.46 21.25c-111.93 79.34-184.18 208.27-184.18 354.19.0 239.43 192.68 432.11 432.11 432.11 90.672.0 175.68-28.336 245.1-76.504-59.504 257.85-290.44 451.95-566.71 451.95-323.02.0-583.71-262.1-583.71-583.71.0-351.36 310.27-621.96 657.38-578.04z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+                <span class="dark-mode-visible"
+                  ><svg class="sun" viewBox="0 0 24 24" aria-labelledby="title" fill="#ffff80">
+                    <title>Sun</title>
+                    <path
+                      shape-rendering="geometricPrecision"
+                      d="m6.76 4.84-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7 1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31.0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91 1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"
+                    ></path>
+                  </svg>
+                </span>
+              </span>
+            </label>
+            <label class="toggle hidden-when-right-menu-visible" accesskey="m" title="Open Menu (Alt + M)" aria-label="Mobile menu">
+              <div class="menuToggle">
+                <input class="ham" type="checkbox" id="nav-menu-checkbox" aria-label="Mobile menu" />
+                <span class="ham"></span>
+                <span class="ham"></span>
+                <span class="ham"></span>
+                <div class="nav-menu">
+                  <ul class="nav-menu-items">
+                    <li>
+                      <a href="/">All Articles</a>
+                    </li>
+                    <li>
+                      <a href="/alireza-bashiri/">Author</a>
+                    </li>
+                  </ul>
+                  <div id="nav-sidebar-duplicate-container">
+                    <div class="social card">
+                      <ul class="social-icons">
+                        <li id="twitter">
+                          <a href="https://twitter.com/intent/user?screen_name=al3rez" target="_blank" title="Twitter">
+                            <picture>
+                              <source
+                                srcset="
+                                  /images/twitter-29w.webp 29w,
+                                  /images/twitter-58w.webp 58w,
+                                  /images/twitter-87w.webp 87w
+                                "
+                                sizes="1.8125rem"
+                                type="image/webp"
+                                media="screen"
+                              />
+                              <img src="/images/twitter-29w.png" alt="Twitter" style="width: 1.8125rem; height: 1.5rem" loading="lazy" decoding="async" />
+                            </picture>
+                          </a>
+                        </li>
+                        <li id="linkedin">
+                          <a href="http://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&amp;followMember=al3rez" target="_blank" title="LinkedIn">
+                            <picture>
+                              <source
+                                srcset="
+                                  /images/linkedin-24w.webp 24w,
+                                  /images/linkedin-48w.webp 48w,
+                                  /images/linkedin-72w.webp 72w
+                                "
+                                sizes="1.5rem"
+                                type="image/webp"
+                                media="screen"
+                              />
+                              <img src="/images/linkedin-24w.png" alt="LinkedIn" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+                            </picture>
+                          </a>
+                        </li>
+                        <li id="threads">
+                          <a href="https://www.threads.net/@al3rez" target="_blank" title="Threads">
+                            <picture>
+                              <source
+                                srcset="
+                                  /images/threads-21w.webp 21w,
+                                  /images/threads-42w.webp 42w,
+                                  /images/threads-63w.webp 63w
+                                "
+                                sizes="1.3125rem"
+                                type="image/webp"
+                                media="screen"
+                              />
+                              <img src="/images/threads-21w.png" alt="Threads" class="dark-invert" style="width: 1.3125rem; height: 1.5rem" loading="lazy" decoding="async" />
+                            </picture>
+                          </a>
+                        </li>
+                        <li id="rss">
+                          <a href="/index.xml" target="_blank" title="RSS">
+                            <picture>
+                              <source
+                                srcset="
+                                  /images/rss-24w.webp 24w,
+                                  /images/rss-48w.webp 48w,
+                                  /images/rss-72w.webp 72w
+                                "
+                                sizes="1.5rem"
+                                type="image/webp"
+                                media="screen"
+                              />
+                              <img src="/images/rss-24w.png" alt="RSS" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+                            </picture>
+                          </a>
+                        </li>
+                        <li id="newsletter">
+                          <a href="/subscribe/" target="_blank" title="Subscribe to articles">
+                            <picture>
+                              <source
+                                srcset="
+                                  /images/newsletter-24w.webp 24w,
+                                  /images/newsletter-48w.webp 48w,
+                                  /images/newsletter-72w.webp 72w
+                                "
+                                sizes="1.5rem"
+                                type="image/webp"
+                                media="screen"
+                              />
+                              <img
+                                src="/images/newsletter-24w.png"
+                                alt="Subscribe to articles"
+                                class="dark-invert"
+                                style="width: 1.5rem; height: 1.5rem"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </picture>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    {% include newsletter.html %}
+                  </div>
+                </div>
+                <div class="dim-everything-overlay"></div>
+              </div>
+            </label>
+          </nav>
+        </header>
+        <a class="headerTab hidden-when-right-menu-visible" href="/subscribe/" target="_blank">Subscribe</a>
+      </div>
+      <div class="layout-container-top"></div>
+      <div class="layout-container-left"></div>
+      <div class="layout-container-content">{{content}}</div>
+      <div class="layout-container-right">
+        <div id="nav-sidebar-src-container" class="card-stack">
+          <div class="social card card-no-sep">
+            <ul class="social-icons">
+              <li id="twitter">
+                <a href="https://twitter.com/intent/user?screen_name=al3rez" target="_blank" title="Twitter">
+                  <picture>
+                    <source
+                      srcset="
+                        /images/twitter-29w.webp 29w,
+                        /images/twitter-58w.webp 58w,
+                        /images/twitter-87w.webp 87w
+                      "
+                      sizes="1.8125rem"
+                      type="image/webp"
+                      media="screen"
+                    />
+                    <img src="/images/twitter-29w.png" alt="Twitter" style="width: 1.8125rem; height: 1.5rem" loading="lazy" decoding="async" />
+                  </picture>
+                </a>
+              </li>
+              <li id="linkedin">
+                <a href="http://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&amp;followMember=al3rez" target="_blank" title="LinkedIn">
+                  <picture>
+                    <source
+                      srcset="
+                        /images/linkedin-24w.webp 24w,
+                        /images/linkedin-48w.webp 48w,
+                        /images/linkedin-72w.webp 72w
+                      "
+                      sizes="1.5rem"
+                      type="image/webp"
+                      media="screen"
+                    />
+                    <img src="/images/linkedin-24w.png" alt="LinkedIn" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+                  </picture>
+                </a>
+              </li>
+              <li id="threads">
+                <a href="https://www.threads.net/@al3rez" target="_blank" title="Threads">
+                  <picture>
+                    <source
+                      srcset="
+                        /images/threads-21w.webp 21w,
+                        /images/threads-42w.webp 42w,
+                        /images/threads-63w.webp 63w
+                      "
+                      sizes="1.3125rem"
+                      type="image/webp"
+                      media="screen"
+                    />
+                    <img src="/images/threads-21w.png" alt="Threads" class="dark-invert" style="width: 1.3125rem; height: 1.5rem" loading="lazy" decoding="async" />
+                  </picture>
+                </a>
+              </li>
+              <li id="rss">
+                <a href="/index.xml" target="_blank" title="RSS">
+                  <picture>
+                    <source
+                      srcset="
+                        /images/rss-24w.webp 24w,
+                        /images/rss-48w.webp 48w,
+                        /images/rss-72w.webp 72w
+                      "
+                      sizes="1.5rem"
+                      type="image/webp"
+                      media="screen"
+                    />
+                    <img src="/images/rss-24w.png" alt="RSS" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+                  </picture>
+                </a>
+              </li>
+              <li id="newsletter">
+                <a href="/subscribe/" target="_blank" title="Subscribe to articles">
+                  <picture>
+                    <source
+                      srcset="
+                        /images/newsletter-24w.webp 24w,
+                        /images/newsletter-48w.webp 48w,
+                        /images/newsletter-72w.webp 72w
+                      "
+                      sizes="1.5rem"
+                      type="image/webp"
+                      media="screen"
+                    />
+                    <img src="/images/newsletter-24w.png" alt="Subscribe to articles" class="dark-invert" style="width: 1.5rem; height: 1.5rem" loading="lazy" decoding="async" />
+                  </picture>
+                </a>
+              </li>
+            </ul>
+          </div>
+          {% include newsletter.html %} {% if page.url != "/" %}
+          <div class="card">
+            <h3>Thank you for sharing this article:</h3>
+            <div class="share" id="share-src">
+              <div>
+                <a
+                  href="https://twitter.com/intent/tweet?url=https%3a%2f%2flongform.asmartbear.com%2fproduct-market-fit-formula%2f%3futm_content%3dshare-button&amp;text=From%20%40asmartbear%3a%0a%0aThis%20eight-step%20process%20brought%20WP%20Engine%20from%20an%20idea%20to%20a%20Unicorn.%20While%20there%20are%20other%20roads%20to%20Product%2fMarket%20Fit%2c%20consider%20copying%20some%20of%20these%20ideas.%0a%0a"
+                  target="_blank"
+                  aria-label="Share on Twitter"
+                  ><svg class="share twitter" viewBox="0 0 20 20" aria-labelledby="title">
+                    <title>Twitter</title>
+                    <path
+                      shape-rendering="geometricPrecision"
+                      d="M20 4c-.7.3-1.5.6-2.4.7.9-.5 1.5-1.4 1.8-2.3-.8.5-1.7.8-2.6 1C16.1 2.5 15 2 13.8 2c-2.3.0-4.1 1.9-4.1 4.2.0.3.0.7.1 1C6.4 7 3.4 5.4 1.4 2.9 1 3.5.8 4.1.8 4.9c0 1.4.7 2.7 1.8 3.5C2 8.4 1.4 8.2.8 7.9V8c0 2 1.4 3.7 3.3 4.1-.4.1-.7.2-1.1.2-.3.0-.5.0-.8-.1.5 1.7 2 2.9 3.8 2.9-1.4 1.1-3.2 2-5.1 2-.3.0-.7.0-1-.1 1.8 1.2 4 1.7 6.3 1.7 7.5.0 11.7-6.4 11.7-12V6.1C18.8 5.6 19.4 4.8 20 4z"
+                    ></path></svg
+                ></a>
+              </div>
+              <div>
+                <a
+                  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2flongform.asmartbear.com%2fproduct-market-fit-formula%2f%3futm_content%3dshare-button&amp;title=The%20roadmap%20to%20Product%2fMarket%20Fit%20%28PMF%29%e2%80%a6%20maybe&amp;summary=This%20eight-step%20process%20brought%20WP%20Engine%20from%20an%20idea%20to%20a%20Unicorn.%20While%20there%20are%20other%20roads%20to%20Product%2fMarket%20Fit%2c%20consider%20copying%20some%20of%20these%20ideas.&amp;source=A+Smart+Bear"
+                  target="_blank"
+                  aria-label="Share on LinkedIn"
+                  ><svg class="share linkedin" viewBox="0 0 20 20" aria-labelledby="title">
+                    <title>LinkedIn</title>
+                    <path
+                      shape-rendering="geometricPrecision"
+                      d="M.4 6.4v12.5h4.2V6.4H.4zm10.8 5.3c0-1.6 1.1-2.4 2.3-2.4s2.3.8 2.3 2.8V19H20v-7.3C20 8.1 17.9 6 15 6c-1.7.0-2.9.9-3.8 2.1l-.1-1.7H7C7 6.9 7 9.3 7 9.3V19h4.2V11.7zM2.4 4.4C4 4.4 5 3.4 5 2.2 4.9 1 4 0 2.5.0.9.0-.1 1-.1 2.2c0 1.2 1 2.2 2.5 2.2z"
+                    ></path></svg
+                ></a>
+              </div>
+              <div>
+                <a href="https://www.threads.net/@theasmartbear" target="_blank" aria-label="Share on Threads"
+                  ><svg class="share threads" viewBox="0 0 192 192" aria-labelledby="title">
+                    <title>Threads</title>
+                    <path
+                      class="x19hqcy"
+                      d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451 137.537 60.5382 122.616 44.905 97.5619 44.745 97.4484 44.7443 97.3355 44.7443 97.222 44.7443c-14.9856.0-27.4489 6.3966-35.12 18.0364L75.881 72.2328c5.7306-8.6945 14.7242-10.548 21.3476-10.548C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855 105.707 61.7381 111.932 64.1366 115.961 68.814 118.893 72.2193 120.854 76.925 121.825 82.8638 114.511 81.6207 106.601 81.2385 98.145 81.7233 74.3247 83.0954 59.0111 96.9879 60.0396 116.292 60.5615 126.084 65.4397 134.508 73.775 140.011 80.8224 144.663 89.899 146.938 99.3323 146.423 111.79 145.74 121.563 140.987 128.381 132.296 133.559 125.696 136.834 117.143 138.28 106.366 144.217 109.949 148.617 114.664 151.047 120.332 155.179 129.967 155.42 145.8 142.501 158.708c-11.319 11.308-24.925 16.2-45.4875 16.351C74.2042 174.89 56.9538 167.575 45.7381 153.317 35.2355 139.966 29.8077 120.682 29.6052 96 29.8077 71.3178 35.2355 52.0336 45.7381 38.6827 56.9538 24.4249 74.2039 17.11 97.0132 16.9405c22.9748.1708 40.5258 7.5209 52.1708 21.8475C154.894 45.8136 159.199 54.6488 162.037 64.9503l16.147-4.3081C174.744 47.9622 169.331 37.0357 161.965 27.974 147.036 9.60668 125.202.195148 97.0695.0h-.1126C68.8816.19447 47.2921 9.6418 32.7883 28.0793 19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96 13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921 47.2921 182.358 68.8816 191.806 96.9569 192h.1126C122.03 191.827 139.624 185.292 154.118 170.811c18.963-18.945 18.392-42.692 12.142-57.27C161.776 103.087 153.227 94.5962 141.537 88.9883zM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372 76.2232 107.93 81.9158 99.626 99.0812 98.6368 101.047 98.5234 102.976 98.468 104.871 98.468c6.235.0 12.068.605699999999999 17.371 1.765C120.264 124.935 108.662 128.946 98.4405 129.507z"
+                    ></path></svg
+                ></a>
+              </div>
+              <div>
+                <a
+                  href="mailto:?subject=Article%3a%20The%20roadmap%20to%20Product%2fMarket%20Fit%20%28PMF%29%e2%80%a6%20maybe&amp;body=Sharing%20this%20article%20with%20you.%20%20Summary%3a%0a%0aThis%20eight-step%20process%20brought%20WP%20Engine%20from%20an%20idea%20to%20a%20Unicorn.%20While%20there%20are%20other%20roads%20to%20Product%2fMarket%20Fit%2c%20consider%20copying%20some%20of%20these%20ideas.%0a%0ahttps%3a%2f%2flongform.asmartbear.com%2fproduct-market-fit-formula%2f%3futm_content%3dshare-button"
+                  target="_blank"
+                  aria-label="Share by email"
+                  ><svg class="share email" viewBox="0 0 20 20" aria-labelledby="title">
+                    <title>Email</title>
+                    <path
+                      d="M0 4.9v11c0 .5.5.9 1 .9H19c.5.0 1-.4 1-.9v-11c0-.5-.5-.9-1-.9H1c-.6.0-1 .4-1 .9zm16.9.5L10 10.9 3.1 5.4H16.9zM9.4 12.6c.3.2.7.2 1.1.0l8-6.2v9.1L1.4 15.4l.3-9 7.7 6.2z"
+                    ></path></svg
+                ></a>
+              </div>
+              <div>
+                <a
+                  href="https://longform.asmartbear.com/product-market-fit-formula/?utm_content=share-button"
+                  onclick='return sayClipped(this,"https://longform.asmartbear.com/product-market-fit-formula/?utm_content=share-button"),!1'
+                  aria-label="Copy link to article"
+                  ><svg class="share link" viewBox="0 0 20 20" aria-labelledby="title">
+                    <title>Copy Link</title>
+                    <path
+                      d="M4.8 20c-1 0-2.1-.4-2.8-1.2l-.7-.6c-1.6-1.6-1.6-4.1.0-5.7l4.9-4.8c1.6-1.6 4.1-1.6 5.7.0l.7.7c.3.3.3.9.0 1.2-.3.3-.9.3-1.2.0l-.7-.7c-.9-.9-2.4-.9-3.3.0l-4.9 4.8c-.9.9-.9 2.4.0 3.3l.7.6c1 1 2.4 1 3.4.0l3.3-3.3c.3-.3.9-.3 1.2.0.3.3.3.9.0 1.2l-3.3 3.3c-1 .8-2 1.2-3 1.2zm9.1-7.5 4.9-4.8c1.6-1.6 1.6-4.1.0-5.7l-.7-.7C17.3.5 16.3.0 15.2.0c-1.1.0-2.2.5-2.8 1.2L9.1 4.6c-.3.3-.3.9.0 1.2s.9.3 1.2.0l3.4-3.4c.4-.5 1-.7 1.6-.7s1.2.3 1.7.7l.7.7c.9.9.9 2.4.0 3.3l-4.9 4.8c-.8.8-2.5.8-3.3.0l-.7-.7c-.3-.3-.9-.3-1.2.0s-.3.9.0 1.2l.7.7c.7.7 1.8 1.2 2.8 1.2s2.1-.4 2.8-1.1z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="card article-toc">
+            <h3>Inside this article</h3>
+            <nav id="TableOfContents">
+              <ul>
+                <li><a href="#article-title">( Top )</a></li>
+
+                {% assign headers = page.content | split: '<h2' %}
+                {% for header in headers offset:1 %}
+                    {% assign header_parts = header | split: '</h2>' %}
+                    {% assign header_content = header_parts[0] | split: '>' %}
+                    {% assign title = header_content[1] %}
+                    {% assign html_id = header_content[0] | split: 'id="' | last | split: '"' | first %}
+        
+                    <li>
+                  <a href="{{page.url}}/#{{html_id}}" class="long">{{ title }}</a>
+                    </li>
+                {% endfor %}
+              </ul>
+            </nav>
+            <script>
+              window.addEventListener("load", function () {
+                hookHeadings(), updateFromScroll();
+              });
+            </script>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="layout-container-bottom">
+        <hr />
+        <footer>
+          No ads. No Google tracking. 100% privacy.<br />
+          Drop me a line on <a href="https://twitter.com/intent/user?screen_name=al3rez" target="_blank" rel="me">Twitter</a>,
+          <a href="http://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&amp;followMember=al3rez" target="_blank" rel="me">LinkedIn</a>,
+          <a rel="me" href="https://noc.social/@al3rez" target="_blank">Mastodon</a>, or <a rel="me" href="https://www.threads.net/@al3rez" target="_blank">Threads</a>.<br />
+          © 2023-2024 <a href="/alireza-bashiri/">Alireza Bashiri</a><br />
+        </footer>
+      </div>
     </div>
+    <script defer="" async="" src="https://cdn.usefathom.com/script.js" data-site="USVAULRZ"></script>
+    <script>
+      function sayClipped(e, t) {
+        navigator.clipboard.writeText(t);
+        const n = document.getElementById("link-copied"),
+          s = e.getBoundingClientRect(),
+          i = document.getElementById("site-main").getBoundingClientRect(),
+          a = 4 * 16;
+        let r = s.bottom + 8,
+          o = (s.left + s.right - a) / 2;
+        (o = Math.min(Math.max(16, o), i.right - 16)),
+          (n.style.top = r + "px"),
+          (n.style.left = o + "px"),
+          (n.style.visibility = "visible"),
+          (n.style.opacity = 1),
+          w.setTimeout(() => {
+            (n.style.opacity = 0),
+              w.setTimeout(() => {
+                n.style.visibility = "hidden";
+              }, 500);
+          }, 3e3);
+      }
+      function afterPage() {
+        var e = document.getElementsByClassName("longform");
+        !e || e.length == 0 ? (e = null) : (e = e[0]);
+        const t = document.querySelector("body");
+        establishTheme(!0);
+        function n(e) {
+          if (!e.currentTarget.checked) return;
+          let n = document.getElementById("nav-sidebar-src-container"),
+            s = document.getElementById("nav-sidebar-duplicate-container"),
+            t = n.cloneNode(!0);
+          for (let e of t.children) e.classList.remove("card-no-sep");
+          s.replaceChildren(...t.children), hookHeadings();
+        }
+        document.getElementById("nav-menu-checkbox").addEventListener("change", n);
+        let s = document.getElementById("share-src");
+        for (let t of document.getElementsByClassName("share-dst")) {
+          let e = s.cloneNode(!0);
+          e.removeAttribute("id"), t.replaceChildren(e);
+        }
+        document.querySelectorAll(".longform dt").forEach((e) => {
+          const t = document.createElement("b");
+          (t.innerHTML = e.innerHTML), (e.innerHTML = ""), e.appendChild(t);
+        }),
+          document.addEventListener("DOMContentLoaded", () => {
+            e &&
+              mm_has_mouse.matches &&
+              document.querySelectorAll(".longform a.internal").forEach((n) => {
+                const d = n.dataset.title,
+                  u = n.dataset.desc,
+                  l = n.dataset.imageSrc1,
+                  h = n.dataset.imageSrc2,
+                  s = document.createElement("div");
+                s.classList.add("articlePreview"), t.appendChild(s);
+                let o = null;
+                if (l) {
+                  const e = document.createElement("div");
+                  e.classList.add("img"), s.appendChild(e), (o = document.createElement("img")), o.setAttribute("src", ""), o.setAttribute("alt", "Thumbnail"), e.appendChild(o);
+                }
+                const i = document.createElement("div");
+                i.classList.add("txt"), s.appendChild(i);
+                const a = document.createElement("div");
+                (a.textContent = d), a.classList.add("title"), i.appendChild(a);
+                const c = document.createElement("div");
+                (c.textContent = u),
+                  c.classList.add("desc"),
+                  i.appendChild(c),
+                  n.addEventListener("mouseover", (t) => {
+                    o ? (o.setAttribute("srcset", l + " 1x," + h + " 2x"), o.setAttribute("onload", 'fetch("' + n.href + '")')) : fetch(n.href);
+                    const c = e.getBoundingClientRect(),
+                      i = n.getBoundingClientRect();
+                    s.style.display = "block";
+                    const a = s.getBoundingClientRect(),
+                      d = 16,
+                      f = 36,
+                      u = c.right,
+                      m = c.left,
+                      p = t.clientX - i.left,
+                      g = i.right - t.clientX,
+                      v = p <= g;
+                    (r = { left: i.left, right: i.right, bottom: i.top - d }),
+                      v ? (r.right = r.left + a.width) : (r.left = r.right - a.width),
+                      (r.top = r.bottom - a.height),
+                      r.top <= f && (r.top = i.bottom + d),
+                      r.right >= u && (r.left = u - a.width),
+                      r.left <= m && (r.left = m),
+                      (s.style.left = r.left + "px"),
+                      (s.style.top = r.top + "px");
+                  }),
+                  n.addEventListener("mouseout", () => {
+                    s.style.display = "none";
+                  });
+              });
+          });
+      }
+      afterPage();
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        let e = document.createElement("link");
+        (e.id = "ss-scssprintscss"),
+          (e.type = "text/css"),
+          (e.rel = "stylesheet"),
+          (e.href = "/css/print.min.css"),
+          (e.media = "print"),
+          document.getElementsByTagName("head")[0].appendChild(e);
+      });
+    </script>
+    <noscript><link rel="stylesheet" href="/scss/print.min.css" media="print" /></noscript>
+
     {% include consent.html %}
   </body>
 </html>

@@ -1,0 +1,47 @@
+---
+title: A Thoughtful Coder
+layout: default
+---
+
+<h1 class="">Welcome to {{page.title}}: Longform</h1>
+<p>
+  <i>Articles from building SaaS over one and a half decades, both as a freelancer and indie hacker.</i>
+</p>
+
+<div class="search-area">
+  <span class="sort">
+    <span>Sort By:</span>
+    <button id="by-weight" class="current" onclick="setSort(this)">Popularity</button>
+    <button id="by-date" onclick="setSort(this)">Newest</button>
+  </span>
+  <span class="search"> 🔍<input id="search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" /> </span>
+</div>
+<div id="no-results">No articles match the search string.</div>
+<ul class="page-list" id="page-list">
+  {% for post in site.posts %}
+  <li id="slug-{{post.slug}}" style="order: 1">
+    <a href="{{post.url}}" aria-label="Read full article: {{post.title}}">
+      <div class="featured-image">
+        <picture class="diagram transparent figure wide tall dark-invert">
+          <img
+            src="{{post.thumbnail_url}}"
+            style="width: 1200px; height: auto; max-width: 100%; aspect-ratio: 1.8987341772151898; background: 0 0"
+            loading="eager"
+            decoding="async"
+            alt="Hero image for Excuse me, is there a problem?"
+          />
+        </picture>
+      </div>
+      <div class="text-container">
+        <div class="title">{{post.title}}</div>
+        <div class="summary">
+          {{post.excerpt}}
+          <span class="date">—{{post.date | date: "%B %Y"}}</span>
+          <span class="date">| {{post.content | number_of_words}} words.</span>
+        </div>
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% include search.html %}

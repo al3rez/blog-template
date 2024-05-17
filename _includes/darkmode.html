@@ -1,0 +1,136 @@
+<script>
+  const w = window,
+    wl = window.location,
+    mm = w.matchMedia,
+    mm_print = mm("print"),
+    mm_pref_dark = mm("(prefers-color-scheme: dark)"),
+    mm_has_mouse = mm("screen and (hover: hover) and (pointer: fine)"),
+    queryArgs = new Proxy(new URLSearchParams(wl.search), {
+      get: (e, t) => e.get(t),
+      set: (e, t, n) => {
+        if ((n == "" ? e.delete(t) : e.set(t, n), history.replaceState)) {
+          let t = e.toString();
+          t && (t = "?" + t);
+          const n = wl.origin + wl.pathname + t;
+          w.history.replaceState({}, "", n);
+        }
+        return !0;
+      },
+    });
+  function renameTag(e, t) {
+    let n = e.attributes.getNamedItem("src");
+    n && e.attributes.removeNamedItem(n.name);
+    let s = document.createElement(t);
+    e.parentNode.replaceChild(s, e);
+    for (const t of e.attributes) s.setAttribute(t.name, t.value);
+    (s.innerHTML = e.innerHTML), n && s.setAttribute(n.name, n.value);
+  }
+  var currTheme = "";
+  function getTheme() {
+    if (mm_print.matches) return "print";
+    const e = location.protocol;
+    if (e == "safari-reader:" || e == "about:" || e == "chrome-extension:") return "light";
+    const t = localStorage.getItem("theme");
+    return t ? t : mm_pref_dark.matches ? "dark" : "light";
+  }
+  function establishTheme(e) {
+    const t = getTheme();
+    if (!e && t == currTheme) return;
+    const n = t == "dark" ? "dark" : "light",
+      s = n == "light" ? "dark" : "light";
+    function o(e, t) {
+      e.removeAttribute("aria-hidden"), renameTag(e, t);
+    }
+    function i(e, t) {
+      e.setAttribute("aria-hidden", "true"), renameTag(e, t + "-disabled");
+    }
+    document.querySelectorAll("." + s + " img").forEach((e) => i(e, "img")),
+      document.querySelectorAll("picture." + s).forEach((e) => i(e, "picture")),
+      document.querySelectorAll("picture-disabled." + n).forEach((e) => o(e, "picture")),
+      document.querySelectorAll("." + n + " img-disabled").forEach((e) => o(e, "img")),
+      document.documentElement.setAttribute("data-theme", t),
+      (currTheme = t);
+  }
+  function toggleTheme(e) {
+    let n = getTheme(),
+      t;
+    if (e) t = "";
+    else if (n == "light") t = "dark";
+    else if (n == "dark") t = "light";
+    else return;
+    (n = localStorage.setItem("theme", t)), establishTheme();
+  }
+  function closeMobileNav() {
+    const e = document.getElementById("nav-menu-checkbox");
+    e && e.checked && (e.checked = !1);
+  }
+  mm_print.addEventListener("change", establishTheme),
+    mm_pref_dark.addEventListener("change", establishTheme),
+    w.addEventListener("pageshow", () => {
+      closeMobileNav(), establishTheme();
+    }),
+    establishTheme();
+  function getContentHeadings() {
+    return document.querySelectorAll("h1, h2, h3");
+  }
+  function getContentTableOfContentLinks() {
+    return document.querySelectorAll("nav#TableOfContents a");
+  }
+  function getHeadingScrollPositions() {
+    let n = Math.round(Math.max(w.innerHeight * 0.15, 100)),
+      e = getContentHeadings(),
+      t = new Array(e.length);
+    for (let s = 0; s < e.length; s++) t[s] = e[s].offsetTop - n;
+    return t;
+  }
+  function updateFromScroll() {
+    let o = w.scrollY,
+      e = getContentHeadings();
+    if (!e || !e.length) return;
+    let t = getContentTableOfContentLinks();
+    if (!t || !t.length) return;
+    let n = getHeadingScrollPositions(),
+      s = 0;
+    for (let e = 0; e < n.length; e++) {
+      if (n[e] > o) break;
+      s = e;
+    }
+    let i = "#" + e[s].id;
+    t.forEach((e) => {
+      let t = e.hash == i;
+      t ? e.classList.add("current") : e.classList.remove("current");
+    });
+  }
+  function scrollToHeading(e, t) {
+    let n = getContentHeadings();
+    for (let s = 0; s < n.length; ++s)
+      if (n[s].id == e) {
+        let e = getHeadingScrollPositions()[s],
+          n = w.scrollY;
+        Math.abs(e - n) > 10 && w.scroll({ top: e, behavior: t }), closeMobileNav();
+        break;
+      }
+  }
+  function headingEvent(e) {
+    e.preventDefault();
+    let t = e.target;
+    for (; !t.hash; ) t = t.parentNode;
+    let n = t.hash.substring(1);
+    scrollToHeading(n, "smooth");
+  }
+  function hookHeadings() {
+    console.log("hookHeadings called");
+    window.onscroll = updateFromScroll;
+    const links = getContentTableOfContentLinks();
+    console.log("Number of links found:", links.length);
+    links.forEach((e) => {
+      console.log("Adding event listener to:", e);
+      e.addEventListener("click", headingEvent);
+    });
+  }
+  const console_log = console.log;
+  console.log = (...e) => {
+    if (e.some((e) => typeof e == "string" && (e.toLowerCase().includes("sparkloop") || e.startsWith("Subscriber ID ")))) return;
+    console_log(...e);
+  };
+</script>
