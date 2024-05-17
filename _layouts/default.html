@@ -16,6 +16,40 @@
 
     <link rel="canonical" href="https://athoughtfulcoder.com" />
     <title>{{page.title}}</title>
+    <script>
+        window.slugsByWeight = [
+          {% for post in site.posts %}
+          "slug-{{post.slug}}",
+          {% endfor %}
+        ];
+
+        window.slugsByDateReverse = [
+          {% for post in site.posts reversed %}
+          "slug-{{post.slug}}",
+          {% endfor %}
+        ]
+        window.data = [
+            {% for post in site.posts %}
+            {
+                "id": {{forloop.index}},
+                "slug": "{{post.slug}}",
+                "href": "{{ post.url }}",
+                "title": "{{ post.title }}",
+                "section": "Articles",
+                "weight": {{forloop.index}},
+                "pubDate": "{{ post.date | date_to_xmlschema }}",
+                "categories": [
+                    {% for category in post.categories %}
+                        "{{ category }}"{% unless forloop.last %},{% endunless %}
+                    {% endfor %}
+                ],
+                "summary": "{{ post.excerpt | strip_html | strip_newlines }}",
+                "content": "{{ post.content | strip_html | strip_newlines }}"
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ];
+
+    </script>
     {% seo %}
   </head>
   <body>
@@ -94,9 +128,9 @@
                             <picture>
                               <source
                                 srcset="
-                                  https://longform.asmartbear.com/images/twitter-29w.webp 29w,
-                                  https://longform.asmartbear.com/images/twitter-58w.webp 58w,
-                                  https://longform.asmartbear.com/images/twitter-87w.webp 87w
+                                  /images/twitter-29w.webp 29w,
+                                  /images/twitter-58w.webp 58w,
+                                  /images/twitter-87w.webp 87w
                                 "
                                 sizes="1.8125rem"
                                 type="image/webp"
@@ -111,9 +145,9 @@
                             <picture>
                               <source
                                 srcset="
-                                  https://longform.asmartbear.com/images/linkedin-24w.webp 24w,
-                                  https://longform.asmartbear.com/images/linkedin-48w.webp 48w,
-                                  https://longform.asmartbear.com/images/linkedin-72w.webp 72w
+                                  /images/linkedin-24w.webp 24w,
+                                  /images/linkedin-48w.webp 48w,
+                                  /images/linkedin-72w.webp 72w
                                 "
                                 sizes="1.5rem"
                                 type="image/webp"
@@ -128,9 +162,9 @@
                             <picture>
                               <source
                                 srcset="
-                                  https://longform.asmartbear.com/images/threads-21w.webp 21w,
-                                  https://longform.asmartbear.com/images/threads-42w.webp 42w,
-                                  https://longform.asmartbear.com/images/threads-63w.webp 63w
+                                  /images/threads-21w.webp 21w,
+                                  /images/threads-42w.webp 42w,
+                                  /images/threads-63w.webp 63w
                                 "
                                 sizes="1.3125rem"
                                 type="image/webp"
@@ -145,9 +179,9 @@
                             <picture>
                               <source
                                 srcset="
-                                  https://longform.asmartbear.com/images/rss-24w.webp 24w,
-                                  https://longform.asmartbear.com/images/rss-48w.webp 48w,
-                                  https://longform.asmartbear.com/images/rss-72w.webp 72w
+                                  /images/rss-24w.webp 24w,
+                                  /images/rss-48w.webp 48w,
+                                  /images/rss-72w.webp 72w
                                 "
                                 sizes="1.5rem"
                                 type="image/webp"
@@ -162,9 +196,9 @@
                             <picture>
                               <source
                                 srcset="
-                                  https://longform.asmartbear.com/images/newsletter-24w.webp 24w,
-                                  https://longform.asmartbear.com/images/newsletter-48w.webp 48w,
-                                  https://longform.asmartbear.com/images/newsletter-72w.webp 72w
+                                  /images/newsletter-24w.webp 24w,
+                                  /images/newsletter-48w.webp 48w,
+                                  /images/newsletter-72w.webp 72w
                                 "
                                 sizes="1.5rem"
                                 type="image/webp"
@@ -205,9 +239,9 @@
                   <picture>
                     <source
                       srcset="
-                        https://longform.asmartbear.com/images/twitter-29w.webp 29w,
-                        https://longform.asmartbear.com/images/twitter-58w.webp 58w,
-                        https://longform.asmartbear.com/images/twitter-87w.webp 87w
+                        /images/twitter-29w.webp 29w,
+                        /images/twitter-58w.webp 58w,
+                        /images/twitter-87w.webp 87w
                       "
                       sizes="1.8125rem"
                       type="image/webp"
@@ -222,9 +256,9 @@
                   <picture>
                     <source
                       srcset="
-                        https://longform.asmartbear.com/images/linkedin-24w.webp 24w,
-                        https://longform.asmartbear.com/images/linkedin-48w.webp 48w,
-                        https://longform.asmartbear.com/images/linkedin-72w.webp 72w
+                        /images/linkedin-24w.webp 24w,
+                        /images/linkedin-48w.webp 48w,
+                        /images/linkedin-72w.webp 72w
                       "
                       sizes="1.5rem"
                       type="image/webp"
@@ -235,13 +269,13 @@
                 </a>
               </li>
               <li id="threads">
-                <a href="https://www.threads.net/@theasmartbear" target="_blank" title="Threads">
+                <a href="https://www.threads.net/@al3rez" target="_blank" title="Threads">
                   <picture>
                     <source
                       srcset="
-                        https://longform.asmartbear.com/images/threads-21w.webp 21w,
-                        https://longform.asmartbear.com/images/threads-42w.webp 42w,
-                        https://longform.asmartbear.com/images/threads-63w.webp 63w
+                        /images/threads-21w.webp 21w,
+                        /images/threads-42w.webp 42w,
+                        /images/threads-63w.webp 63w
                       "
                       sizes="1.3125rem"
                       type="image/webp"
@@ -256,9 +290,9 @@
                   <picture>
                     <source
                       srcset="
-                        https://longform.asmartbear.com/images/rss-24w.webp 24w,
-                        https://longform.asmartbear.com/images/rss-48w.webp 48w,
-                        https://longform.asmartbear.com/images/rss-72w.webp 72w
+                        /images/rss-24w.webp 24w,
+                        /images/rss-48w.webp 48w,
+                        /images/rss-72w.webp 72w
                       "
                       sizes="1.5rem"
                       type="image/webp"
@@ -273,9 +307,9 @@
                   <picture>
                     <source
                       srcset="
-                        https://longform.asmartbear.com/images/newsletter-24w.webp 24w,
-                        https://longform.asmartbear.com/images/newsletter-48w.webp 48w,
-                        https://longform.asmartbear.com/images/newsletter-72w.webp 72w
+                        /images/newsletter-24w.webp 24w,
+                        /images/newsletter-48w.webp 48w,
+                        /images/newsletter-72w.webp 72w
                       "
                       sizes="1.5rem"
                       type="image/webp"
@@ -358,36 +392,18 @@
             <nav id="TableOfContents">
               <ul>
                 <li><a href="#article-title">( Top )</a></li>
-                <li>
-                  <a href="#1-personal-fit-inner-fire-leveraging-personal-edge-do-what-you-were-meant-do" class="long current"
-                    >1. Personal Fit: The inner fire, leveraging a personal edge to do what you were meant to do</a
-                  >
-                  <ul>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#2-market-fit-working-theory-why-will-buy" class="long">2. Market Fit: A working theory of why they will buy.</a>
-                  <ul>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#3-customer-fit-find-ideal-customers-first" class="long">3. Customer Fit: Find the ideal customers first.</a>
-                  <ul>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#4-build-ship-slc">4. Build <em>and ship</em> the SLC.</a>
-                </li>
-                <li><a href="#5-focus-more-on-marketing-sales-less-on-product" class="long">5. Focus more on marketing and sales, less on product.</a></li>
-                <li><a href="#6-prioritize-retention-based-product-work" class="long">6. Prioritize retention-based product work.</a></li>
-                <li><a href="#7-ruthlessly-methodically-systematically-prioritize" class="long">7. Ruthlessly, methodically, systematically prioritize.</a></li>
-                <li><a href="#8-manage-your-psychology">8. Manage your psychology.</a></li>
-                <li><a href="#youre-not-going-do-you" class="long">But you’re not going to do this, are you…</a></li>
-                <li><a href="#smart-bear-only-halfway-followed-roadmap" class="long">Smart Bear only halfway followed the roadmap</a></li>
-                <li><a href="#wp-engine-followed-roadmap-became-unicorn" class="long">WP Engine followed the roadmap and became a unicorn</a></li>
+
+                {% assign headers = page.content | split: '<h2' %}
+                {% for header in headers offset:1 %}
+                    {% assign header_parts = header | split: '</h2>' %}
+                    {% assign header_content = header_parts[0] | split: '>' %}
+                    {% assign title = header_content[1] %}
+                    {% assign html_id = header_content[0] | split: 'id="' | last | split: '"' | first %}
+        
+                    <li>
+                  <a href="{{page.url}}/#{{html_id}}" class="long">{{ title }}</a>
+                    </li>
+                {% endfor %}
               </ul>
             </nav>
             <script>
@@ -514,12 +530,12 @@
         (e.id = "ss-scssprintscss"),
           (e.type = "text/css"),
           (e.rel = "stylesheet"),
-          (e.href = "/scss/print.min.7168ff02cf779028868cc78823a1ccc4fa2683ddda271a19f5d1360ffd5f07ac.css"),
+          (e.href = "/css/print.min.css"),
           (e.media = "print"),
           document.getElementsByTagName("head")[0].appendChild(e);
       });
     </script>
-    <noscript><link rel="stylesheet" href="/scss/print.min.7168ff02cf779028868cc78823a1ccc4fa2683ddda271a19f5d1360ffd5f07ac.css" media="print" /></noscript>
+    <noscript><link rel="stylesheet" href="/scss/print.min.css" media="print" /></noscript>
 
     {% include consent.html %}
   </body>

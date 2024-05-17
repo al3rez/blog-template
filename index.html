@@ -19,7 +19,7 @@ layout: default
 <div id="no-results">No articles match the search string.</div>
 <ul class="page-list" id="page-list">
   {% for post in site.posts %}
-  <li id="slug-problem" style="order: 1">
+  <li id="slug-{{post.slug}}" style="order: 1">
     <a href="{{post.url}}" aria-label="Read full article: {{post.title}}">
       <div class="featured-image">
         <picture class="diagram transparent figure wide tall dark-invert">

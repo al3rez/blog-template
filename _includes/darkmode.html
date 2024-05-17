@@ -71,7 +71,7 @@
     }),
     establishTheme();
   function getContentHeadings() {
-    return document.querySelectorAll("h1.article, h2.article, h3.article");
+    return document.querySelectorAll("h1, h2, h3");
   }
   function getContentTableOfContentLinks() {
     return document.querySelectorAll("nav#TableOfContents a");
@@ -119,10 +119,14 @@
     scrollToHeading(n, "smooth");
   }
   function hookHeadings() {
-    (window.onscroll = updateFromScroll),
-      getContentTableOfContentLinks().forEach((e) => {
-        e.addEventListener("click", headingEvent);
-      });
+    console.log("hookHeadings called");
+    window.onscroll = updateFromScroll;
+    const links = getContentTableOfContentLinks();
+    console.log("Number of links found:", links.length);
+    links.forEach((e) => {
+      console.log("Adding event listener to:", e);
+      e.addEventListener("click", headingEvent);
+    });
   }
   const console_log = console.log;
   console.log = (...e) => {

@@ -2366,16 +2366,16 @@ nav#TableOfContents .current::before {
 }
 
 .formkit-form h2::after {
-  content: "Insights from building two unicorns, twice a month:";
+  content: "Insights from building SaaS over a decade, twice a month:";
 }
 
 .menuToggle .formkit-form h2::after {
-  content: "Insights from building two unicorns:";
+  content: "Insights from building SaaS over a decade:";
 }
 
 @media (max-height: 50rem) {
   .formkit-form h2::after {
-    content: "Insights from building two unicorns:";
+    content: "Insights from building SaaS over a decade:";
   }
 }
 
@@ -2401,11 +2401,11 @@ nav#TableOfContents .current::before {
 }
 
 .formkit-form .formkit-guarantee > p::after {
-  content: "No ads. No listicles. No ShitGPT. Unsubscribe any time.";
+  content: "No ads. No ChatGPT. Unsubscribe any time.";
 }
 
 .menuToggle .formkit-form .formkit-guarantee > p::after {
-  content: "No ads. No ShitGPT. Unsubscribe any time.";
+  content: "No ads. No ChatGPT. Unsubscribe any time.";
 }
 
 @media (max-height: 50rem) {
