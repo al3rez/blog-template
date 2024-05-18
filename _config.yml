@@ -9,7 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://athoughtfulcoder.com"
 twitter_username: al3rez
 github_username: al3rez
-permalink: :title
+permalink: /:title/
 theme: minima
 plugins:
   - jekyll-feed
