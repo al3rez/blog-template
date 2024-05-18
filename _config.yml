@@ -6,7 +6,7 @@ description: >-
   indie hacker soon. I often write on Twitter, and here I share what I learn in
   between.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://athoughtfulcoder.com/"
+url: "https://athoughtfulcoder.com"
 twitter_username: al3rez
 github_username: al3rez
 permalink: :title
