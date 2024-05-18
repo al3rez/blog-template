@@ -175,7 +175,7 @@
                           </a>
                         </li>
                         <li id="rss">
-                          <a href="/index.xml" target="_blank" title="RSS">
+                          <a href="/feed.xml" target="_blank" title="RSS">
                             <picture>
                               <source
                                 srcset="
@@ -286,7 +286,7 @@
                 </a>
               </li>
               <li id="rss">
-                <a href="/index.xml" target="_blank" title="RSS">
+                <a href="/feed.xml" target="_blank" title="RSS">
                   <picture>
                     <source
                       srcset="
@@ -327,7 +327,7 @@
             <div class="share" id="share-src">
               <div>
                 <a
-                  href="https://twitter.com/intent/tweet?url=https%3a%2f%2flongform.asmartbear.com%2fproduct-market-fit-formula%2f%3futm_content%3dshare-button&amp;text=From%20%40asmartbear%3a%0a%0aThis%20eight-step%20process%20brought%20WP%20Engine%20from%20an%20idea%20to%20a%20Unicorn.%20While%20there%20are%20other%20roads%20to%20Product%2fMarket%20Fit%2c%20consider%20copying%20some%20of%20these%20ideas.%0a%0a"
+                  href="https://twitter.com/intent/tweet?url=https://athoughtfulcoder.com/{{page.slug}}/?utm_content=share-button&amp;text=From @al3rez%3a%0a%0a{{page.excerpt}}%0a%0a"
                   target="_blank"
                   aria-label="Share on Twitter"
                   ><svg class="share twitter" viewBox="0 0 20 20" aria-labelledby="title">
@@ -340,7 +340,7 @@
               </div>
               <div>
                 <a
-                  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2flongform.asmartbear.com%2fproduct-market-fit-formula%2f%3futm_content%3dshare-button&amp;title=The%20roadmap%20to%20Product%2fMarket%20Fit%20%28PMF%29%e2%80%a6%20maybe&amp;summary=This%20eight-step%20process%20brought%20WP%20Engine%20from%20an%20idea%20to%20a%20Unicorn.%20While%20there%20are%20other%20roads%20to%20Product%2fMarket%20Fit%2c%20consider%20copying%20some%20of%20these%20ideas.&amp;source=A+Smart+Bear"
+                  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://athoughtfulcoder.com/{{page.slug}}/?utm_content=share-button&amp;title={{page.title}}&amp;summary={{page.content | strip_html | truncatewords: 50}}&amp;source=A+Thoughtful+Coder"
                   target="_blank"
                   aria-label="Share on LinkedIn"
                   ><svg class="share linkedin" viewBox="0 0 20 20" aria-labelledby="title">
@@ -352,7 +352,7 @@
                 ></a>
               </div>
               <div>
-                <a href="https://www.threads.net/@theasmartbear" target="_blank" aria-label="Share on Threads"
+                <a href="https://www.threads.net/@al3rez" target="_blank" aria-label="Share on Threads"
                   ><svg class="share threads" viewBox="0 0 192 192" aria-labelledby="title">
                     <title>Threads</title>
                     <path
@@ -363,7 +363,7 @@
               </div>
               <div>
                 <a
-                  href="mailto:?subject=Article%3a%20The%20roadmap%20to%20Product%2fMarket%20Fit%20%28PMF%29%e2%80%a6%20maybe&amp;body=Sharing%20this%20article%20with%20you.%20%20Summary%3a%0a%0aThis%20eight-step%20process%20brought%20WP%20Engine%20from%20an%20idea%20to%20a%20Unicorn.%20While%20there%20are%20other%20roads%20to%20Product%2fMarket%20Fit%2c%20consider%20copying%20some%20of%20these%20ideas.%0a%0ahttps%3a%2f%2flongform.asmartbear.com%2fproduct-market-fit-formula%2f%3futm_content%3dshare-button"
+                  href="mailto:?subject=Article: {{page.title}}&amp;body=Sharing this article with you.  Summary:%3a%0a%0a{{page.content | strip_html | truncatewords:50}}"
                   target="_blank"
                   aria-label="Share by email"
                   ><svg class="share email" viewBox="0 0 20 20" aria-labelledby="title">
@@ -375,8 +375,8 @@
               </div>
               <div>
                 <a
-                  href="https://longform.asmartbear.com/product-market-fit-formula/?utm_content=share-button"
-                  onclick='return sayClipped(this,"https://longform.asmartbear.com/product-market-fit-formula/?utm_content=share-button"),!1'
+                  href="https://athoughtfulcoder.com/{{page.slug}}/?utm_content=share-button"
+                  onclick='return sayClipped(this,"https://athoughtfulcoder.com/{{page.slug}}/?utm_content=share-button"),!1'
                   aria-label="Copy link to article"
                   ><svg class="share link" viewBox="0 0 20 20" aria-labelledby="title">
                     <title>Copy Link</title>
@@ -426,7 +426,6 @@
         </footer>
       </div>
     </div>
-    <script defer="" async="" src="https://cdn.usefathom.com/script.js" data-site="USVAULRZ"></script>
     <script>
       function sayClipped(e, t) {
         navigator.clipboard.writeText(t);
@@ -535,7 +534,7 @@
           document.getElementsByTagName("head")[0].appendChild(e);
       });
     </script>
-    <noscript><link rel="stylesheet" href="/scss/print.min.css" media="print" /></noscript>
+    <noscript><link rel="stylesheet" href="/css/print.min.css" media="print" /></noscript>
 
     {% include consent.html %}
   </body>
