@@ -399,7 +399,7 @@
                     {% assign html_id = header_content[0] | split: 'id="' | last | split: '"' | first %}
         
                     <li>
-                  <a href="{{page.url}}/#{{html_id}}" class="long">{{ title }}</a>
+                  <a href="{{page.url}}#{{html_id}}" class="long">{{ title }}</a>
                     </li>
                 {% endfor %}
               </ul>
