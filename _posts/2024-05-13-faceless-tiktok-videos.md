@@ -1,14 +1,13 @@
 ---
 layout: post
-title: I tried automating faceless Youtube shorts in 60 minutes
-date: 2024-05-13 10:53:08 +0700
-categories: jekyll update
+title: I tried automating faceless TikTok videos in 60 minutes
+date: 2024-05-18 16:00:00 +0700
+categories: automation tiktok videos faceless python ai
 link: https://github.com/al3rez
-link_name: View Github
 thumbnail_url: /images/faceless.webp
 ---
 
-Faceless videos are starting to become popular, so I decided to build a tool
+Faceless TikTok videos are starting to become popular, so I decided to build a tool
 that can write a story or get a story from users, connect it to the
 ElevenLabs/TikTok API to generate the voice, do the voiceover on an GTA or
 Minecraft video, transcribe the video using AWS, and then render the captions
