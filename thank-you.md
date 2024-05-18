@@ -16,4 +16,4 @@ Thanks again! I can't wait to share more articles with you and hear what you thi
 
 —Alireza
 
-P.S. Catch me on [Twitter](https://twitter.com/al3rez), [LinkedIn](https://linkedin.com/in/alireza-safi), [Mastodon](https://mastodon.social/@al3rez), or [Threads](https://threads.net/@al3rez). Drop by and say hi!
+P.S. Catch me on [Twitter](https://twitter.com/al3rez), [LinkedIn](https://linkedin.com/in/alireza-safi), or [Threads](https://threads.net/@al3rez). Drop by and say hi!
