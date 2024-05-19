@@ -9,10 +9,7 @@ layout: default
   </div>
   <div class="published">{{page.date | date: "%B %d, %Y"}}</div>
   <div class="reading-time">Reading time: {{content | number_of_words | divided_by: 180 | ceil | append: " min"}}</div>
-  <a class="download-pdf" href="/{{page.slug}}" target="_blank">
-    <img src="/images/pdf-64.png" alt="PDF Logo" class="icon" style="height: 2.5ex; width: 2.5ex; margin-bottom: -0.5ex; margin-left: 1px" />
-    Printable PDF </a
-  ><br />
+  <br />
 </div>
 
 <article class="h-entry item markdown">
