@@ -1741,6 +1741,7 @@ svg.share.link {
 .longform pre code {
   padding: 0;
   background: 0 0;
+  color: white;
 }
 
 a.internal {
